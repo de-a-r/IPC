@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anuario Escolar - Créditos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f8fafc;
+            color: #212529;
+        }
+        
+        .bg-custom-dark {
+            background-color: #111827;
+        }
+        
+        .navbar-brand {
+            font-family: 'Cinzel', serif;
+            color: #38bdf8 !important;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        
+        .nav-link {
+            color: #e2e8f0 !important;
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: #facc15 !important;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, #111827 0%, #1f2937 100%);
+            color: #ffffff;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 5px solid #38bdf8;
+        }
+
+        .hero-title, .section-title {
+            font-family: 'Cinzel', serif;
+        }
+
+        .hero-title {
+            color: #ffffff;
+            font-weight: 700;
+        }
+
+        .text-yellow {
+            color: #facc15;
+        }
+        
+        .btn-celeste {
+            background-color: #38bdf8;
+            color: #111827;
+            font-weight: 600;
+            border: 1px solid #38bdf8;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-celeste:hover {
+            background-color: #facc15;
+            border-color: #facc15;
+            color: #111827;
+            transform: translateY(-2px);
+        }
+
+        .jornada-card {
+            border: 1px solid #e2e8f0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            background: #ffffff;
+        }
+
+        .jornada-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(56, 189, 248, 0.15) !important;
+            border-color: #38bdf8;
+        }
+        
+        .badge-matutina {
+            background-color: #38bdf8;
+            color: #111827;
+        }
+
+        .badge-vespertina {
+            background-color: #facc15;
+            color: #111827;
+        }
+
+        /* Corrección Error 4: Nombre de clase asignado adecuadamente */
+        .badge-general {
+            background-color: #6b7280;
+            color: #ffffff;
+        }
+        
+        .tool-icon {
+            font-size: 2.5rem;
+            color: #38bdf8;
+            margin-bottom: 15px;
+            transition: color 0.3s ease;
+        }
+        .jornada-card:hover .tool-icon {
+            color: #facc15;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg bg-custom-dark sticky-top shadow">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-mortarboard-fill me-2 text-yellow" viewBox="0 0 16 16">
+                    <path d="M8.211 2.047a.5.5 0 0 0-.422 0l-7.5 3.5a.5.5 0 0 0 .025.917l7.5 3a.5.5 0 0 0 .372 0L14 7.14V13a1 1 0 0 0-1 1v2h3v-2a1 1 0 0 0-1-1V6.739l.686-.275a.5.5 0 0 0 .025-.917z"/>
+                    <path d="M4.176 9.032a.5.5 0 0 0-.656.327l-.5 1.7a.5.5 0 0 0 .294.605l4.5 1.8a.5.5 0 0 0 .372 0l4.5-1.8a.5.5 0 0 0 .294-.605l-.5-1.7a.5.5 0 0 0-.656-.327L8 10.466z"/>
+                </svg>
+               ANUARIO IPC
+            </a>
+            <button class="navbar-toggler navbar-dark border-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <!-- Corrección Error 6: Ortografía y tildes en el menú -->
+                <ul class="navbar-nav ms-auto text-center">
+                    <li class="nav-item px-2">
+                        <a class="nav-link" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item px-2">
+                        <a class="nav-link" href="matutina.html">Matutina</a>
+                    </li>
+                    <li class="nav-item px-2">
+                        <a class="nav-link" href="vespertina.html">Vespertina</a>
+                    </li>
+                    <li class="nav-item px-2">
+                        <a class="nav-link active" href="creditos.html">Créditos</a>
+                    </li>
+                    <li class="nav-item px-2">
+                        <a class="nav-link" href="muroderecuerdos.html">Muro de Recuerdos</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="bg-custom-dark text-white text-center py-5 hero-section">
+        <div class="container">
+            <span class="badge bg-info text-dark fw-bold px-3 py-2 mb-3">PROMOCIÓN 2026</span>
+            <h1 class="display-5 fw-bold text-uppercase tracking-wide hero-title">Créditos del Proyecto</h1>
+            <p class="text-white-50 lead mb-0">6to Perito Contador - Desarrolladores del Anuario</p>
+        </div>
+    </header>
+
+    <main class="container py-5 my-3">
+        
+        <!-- Maestro Guía -->
+        <div class="text-center mb-4">
+            <!-- Corrección Error 5: Tipografía llevada a la hoja de estilos -->
+            <h2 class="section-title fw-bold text-dark position-relative d-inline-block pb-2" style="border-bottom: 3px solid #38bdf8;">
+                Nuestro Maestro Guía
+            </h2>
+        </div>
+        <div class="row justify-content-center mb-5 pb-4 border-bottom">
+            <div class="col-md-4 col-sm-8">
+                <div class="card text-center p-4 shadow-sm rounded-3 jornada-card">
+                    <!-- Corrección Error 1: Rutas con '/' -->
+                    <img src="img/Profesores/IMG_20260813_125436823_HDR(1).jpg" class="rounded-3 mx-auto mb-3" alt="Carlos José Daniel Cheguen Mejicanos - Maestro Guía" style="width: 150px; height: 190px; object-fit: cover; border: 3px solid #ebf3f7;">
+                    <div class="card-body p-0">
+                        <h4 class="card-title fw-bold text-dark mb-1">Carlos José Daniel Cheguen Mejicanos</h4>
+                        <span class="badge badge-vespertina px-3 py-1 rounded-pill mb-2">Asesor General</span>
+                        <p class="card-text text-secondary small">Gracias por el apoyo y la guía brindada durante la creación de este proyecto escolar.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Foto Grupal -->
+        <div class="text-center mb-4">
+            <h2 class="section-title fw-bold text-dark position-relative d-inline-block pb-2" style="border-bottom: 3px solid #38bdf8;">
+                6to Perito Contador
+            </h2>
+        </div>
+        <div class="row mb-5 pb-4 border-bottom">
+            <div class="col-12">
+                <div class="card p-2 shadow-sm rounded-3 jornada-card">
+                    <img src="img/image.png" class="card-img-top rounded" alt="Foto Grupal de Promoción 6to Perito Contador" style="max-height: 600px; object-fit: cover;">
+                    <div class="card-body text-center bg-white mt-2">
+                        <h4 class="section-title fw-bold text-dark mb-2">Nuestra Promoción</h4>
+                        <p class="text-muted mb-0">Unidos trabajando para dejar una huella en nuestra institución académica.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Equipo de Trabajo (Fotos Individuales) -->
+        <div class="text-center mb-4">
+            <h2 class="section-title fw-bold text-dark position-relative d-inline-block pb-2" style="border-bottom: 3px solid #38bdf8;">
+                Equipo de Desarrollo
+            </h2>
+            <p class="text-muted mt-2">Los estudiantes detrás de la creación de este anuario.</p>
+        </div>
+        <div class="row g-4 justify-content-center mb-5 pb-4 border-bottom">
+            
+            <!-- indexar Josué Morales Loarca -->
+            <div class="col-md-3 col-sm-4">
+                <div class="card text-center p-2 shadow-sm rounded-3 jornada-card">
+                    <img src="img/Vespertina/6to conta fondo/Edgar Josué Morales Loarca.jpg" class="card-img-top rounded mb-2" alt="Edgar Josué Morales Loarca" style="height: 300px; object-fit: cover;">
+                    <div class="card-body p-0">
+                        <span class="badge badge-matutina px-2 py-1 rounded-pill mb-1">Desarrollador</span>
+                        <h6 class="card-title fw-bold text-dark mb-1">Edgar Josué Morales Loarca</h6>
+                        <p class="card-text text-secondary small mb-0">Programación del Front-end y back-end</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Dayana Eunice Auyón Revolorio -->
+            <div class="col-md-3 col-sm-4">
+                <div class="card text-center p-2 shadow-sm rounded-3 jornada-card">
+                    <!-- Corrección Error 2 y 3: Punto y coma en style y alt corregido -->
+                    <img src="img/Vespertina/6to conta fondo/Dayana Eunice Auyón Revolorio.jpg" class="card-img-top rounded mb-2" alt="Dayana Eunice Auyón Revolorio" style="height: 300px; object-fit: cover;">
+                    <div class="card-body p-0">
+                        <span class="badge badge-matutina px-2 py-1 rounded-pill mb-1">Desarrolladora</span>
+                        <h6 class="card-title fw-bold text-dark mb-1">Dayana Eunice Auyón Revolorio</h6>
+                        <p class="card-text text-secondary small mb-0">Programación del Front-end</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Carlos Eduardo Hernández López -->
+            <div class="col-md-3 col-sm-4">
+                <div class="card text-center p-2 shadow-sm rounded-3 jornada-card">
+                    <img src="img/Vespertina/6to conta fondo/Carlos Eduardo Hernández López.jpg" class="card-img-top rounded mb-2" alt="Carlos Eduardo Hernández López" style="height: 300px; object-fit: cover;">
+                    <div class="card-body p-0">
+                        <span class="badge badge-matutina px-2 py-1 rounded-pill mb-1">Desarrollador</span>
+                        <h6 class="card-title fw-bold text-dark mb-1">Carlos Eduardo Hernández López</h6>
+                        <p class="card-text text-secondary small mb-0">Programación del Back-end</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Williams Orlando David Pérez López -->
+            <div class="col-md-3 col-sm-4">
+                <div class="card text-center p-2 shadow-sm rounded-3 jornada-card">
+                    <img src="img/Vespertina/6to conta fondo/Williams Orlando David Pérez López.jpg" class="card-img-top rounded mb-2" alt="Williams Orlando David Pérez López" style="height: 300px; object-fit: cover;">
+                    <div class="card-body p-0">
+                        <span class="badge badge-matutina px-2 py-1 rounded-pill mb-1">Desarrollador</span>
+                        <h6 class="card-title fw-bold text-dark mb-1">Williams Orlando David Pérez López</h6>
+                        <p class="card-text text-secondary small mb-0">Programación del Front-end y Back-end</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Marta Sofía Hurtado Montepeque -->
+            <div class="col-md-3 col-sm-4">
+                <div class="card text-center p-2 shadow-sm rounded-3 jornada-card">
+                    <img src="img/Vespertina/6to conta fondo/Marta Sofía Hurtado Montepeque.jpg" class="card-img-top rounded mb-2" alt="Marta Sofía Hurtado Montepeque" style="height: 300px; object-fit: cover;">
+                    <div class="card-body p-0">
+                        <span class="badge badge-matutina px-2 py-1 rounded-pill mb-1">Desarrolladora</span>
+                        <h6 class="card-title fw-bold text-dark mb-1">Marta Sofía Hurtado Montepeque</h6>
+                        <p class="card-text text-secondary small mb-0">Programación del Back-end</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Alba Marina Ruiz Mendoza -->
+            <div class="col-md-3 col-sm-4">
+                <div class="card text-center p-2 shadow-sm rounded-3 jornada-card">
+                    <img src="img/Vespertina/6to conta fondo/Alba Marina Ruiz Mendoza.jpg" class="card-img-top rounded mb-2" alt="Alba Marina Ruiz Mendoza" style="height: 300px; object-fit: cover;">
+                    <div class="card-body p-0">
+                        <span class="badge badge-matutina px-2 py-1 rounded-pill mb-1">Desarrolladora</span>
+                        <h6 class="card-title fw-bold text-dark mb-1">Alba Marina Ruiz Mendoza</h6>
+                        <p class="card-text text-secondary small mb-0">Programación del Back-end</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Shayna María Daly Felipe Jom -->
+            <div class="col-md-3 col-sm-4">
+                <div class="card text-center p-2 shadow-sm rounded-3 jornada-card">
+                    <img src="img/Vespertina/6to conta fondo/IMG-20260811-WA0012.jpg" class="card-img-top rounded mb-2" alt="Shayna María Daly Felipe Jom" style="height: 300px; object-fit: cover;">
+                    <div class="card-body p-0">
+                        <span class="badge px-2 py-1 rounded-pill mb-1" style="background-color: #62be66; color: #111827;">Redactora</span>
+                        <h6 class="card-title fw-bold text-dark mb-1">Shayna María Daly Felipe Jom</h6>
+                        <p class="card-text text-secondary small mb-0">Recopilación de datos</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Yeylin Marely Vázquez Guzmán -->
+            <div class="col-md-3 col-sm-4">
+                <div class="card text-center p-2 shadow-sm rounded-3 jornada-card">
+                    <img src="img/Vespertina/6to conta fondo/Yeylin Marely Vázquez Guzmán.jpg" class="card-img-top rounded mb-2" alt="Yeylin Marely Vázquez Guzmán" style="height: 300px; object-fit: cover;">
+                    <div class="card-body p-0">
+                        <span class="badge px-2 py-1 rounded-pill mb-1" style="background-color: #62be66; color: #111827;">Redactora</span>
+                        <h6 class="card-title fw-bold text-dark mb-1">Yeylin Marely Vázquez Guzmán</h6>
+                        <p class="card-text text-secondary small mb-0">Recopilación de datos</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Josthyn Eliel Cabrera López -->
+            <div class="col-md-3 col-sm-4">
+                <div class="card text-center p-2 shadow-sm rounded-3 jornada-card">
+                    <img src="img/Vespertina/6to conta fondo/Josthyn Eliel Cabrera López.jpg" class="card-img-top rounded mb-2" alt="Josthyn Eliel Cabrera López" style="height: 300px; object-fit: cover;">
+                    <div class="card-body p-0">
+                        <span class="badge px-2 py-1 rounded-pill mb-1" style="background-color: #62be66; color: #111827;">Redactor</span>
+                        <h6 class="card-title fw-bold text-dark mb-1">Josthyn Eliel Cabrera López</h6>
+                        <p class="card-text text-secondary small mb-0">Recopilación de datos</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Abby Desirée Guadalupe Castellanos Acajabón -->
+            <div class="col-md-3 col-sm-4">
+                <div class="card text-center p-2 shadow-sm rounded-3 jornada-card">
+                    <img src="img/Vespertina/6to conta fondo/Abby Desirée Guadalupe Castellanos Acajabón.jpg" class="card-img-top rounded mb-2" alt="Abby Desirée Guadalupe Castellanos Acajabón" style="height: 300px; object-fit: cover;">
+                    <div class="card-body p-0">
+                        <span class="badge px-2 py-1 rounded-pill mb-1" style="background-color: #62be66; color: #111827;">Redactora</span>
+                        <h6 class="card-title fw-bold text-dark mb-1">Abby Desirée Guadalupe Castellanos Acajabón</h6>
+                        <p class="card-text text-secondary small mb-0">Recopilación de datos</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Susana Guadalupe Cabrera Pátzan -->
+            <div class="col-md-3 col-sm-4">
+                <div class="card text-center p-2 shadow-sm rounded-3 jornada-card">
+                    <img src="img/Vespertina/6to conta fondo/Susana Guadalupe Cabrera Pátzan.jpg" class="card-img-top rounded mb-2" alt="Susana Guadalupe Cabrera Pátzan" style="height: 300px; object-fit: cover;">
+                    <div class="card-body p-0">
+                        <span class="badge px-2 py-1 rounded-pill mb-1" style="background-color: #f07f34; color: #111827;">Diseño</span>
+                        <h6 class="card-title fw-bold text-dark mb-1">Susana Guadalupe Cabrera Pátzan</h6>
+                        <p class="card-text text-secondary small mb-0">Interfaz y experiencia digital</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ruth Nohemy Aguilón Aguilón -->
+            <div class="col-md-3 col-sm-4">
+                <div class="card text-center p-2 shadow-sm rounded-3 jornada-card">
+                    <img src="img/Vespertina/6to conta fondo/Ruth Nohemy Aguilón Aguilón.jpg" class="card-img-top rounded mb-2" alt="Ruth Nohemy Aguilón Aguilón" style="height: 300px; object-fit: cover;">
+                    <div class="card-body p-0">
+                        <span class="badge px-2 py-1 rounded-pill mb-1" style="background-color: #f07f34; color: #111827;">Diseño</span>
+                        <h6 class="card-title fw-bold text-dark mb-1">Ruth Nohemy Aguilón Aguilón</h6>
+                        <p class="card-text text-secondary small mb-0">Interfaz y experiencia digital</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cristian Adolfo Carrillo Salazar -->
+            <div class="col-md-3 col-sm-4">
+                <div class="card text-center p-2 shadow-sm rounded-3 jornada-card">
+                    <img src="img/Vespertina/6to conta fondo/Cristian Adolfo Carillo Salazar.jpg" class="card-img-top rounded mb-2" alt="Cristian Adolfo Carrillo Salazar" style="height: 300px; object-fit: cover;">
+                    <div class="card-body p-0">
+                        <span class="badge px-2 py-1 rounded-pill mb-1" style="background-color: #f1c919; color: #111827;">Control de Calidad</span>
+                        <h6 class="card-title fw-bold text-dark mb-1">Cristian Adolfo Carrillo Salazar</h6>
+                        <p class="card-text text-secondary small mb-0">Revisión y detección de errores</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Brando Emanuel Pérez Valenzuela -->
+            <div class="col-md-3 col-sm-4">
+                <div class="card text-center p-2 shadow-sm rounded-3 jornada-card">
+                    <img src="img/Vespertina/6to conta fondo/Brando Emanuel Pérez Valenzuela.jpg" class="card-img-top rounded mb-2" alt="Brando Emanuel Pérez Valenzuela" style="height: 300px; object-fit: cover;">
+                    <div class="card-body p-0">
+                        <span class="badge px-2 py-1 rounded-pill mb-1" style="background-color: #f1c919; color: #111827;">Control de Calidad</span>
+                        <h6 class="card-title fw-bold text-dark mb-1">Brando Emanuel Pérez Valenzuela</h6>
+                        <p class="card-text text-secondary small mb-0">Revisión y detección de errores</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Jonathan Joel González Rodas -->
+            <div class="col-md-3 col-sm-4">
+                <div class="card text-center p-2 shadow-sm rounded-3 jornada-card">
+                    <img src="img/Vespertina/6to conta fondo/Jonathan Joel González Rodas.jpg" class="card-img-top rounded mb-2" alt="Jonathan Joel González Rodas" style="height: 300px; object-fit: cover;">
+                    <div class="card-body p-0">
+                        <span class="badge px-2 py-1 rounded-pill mb-1" style="background-color: #f1c919; color: #111827;">Control De Calidad</span>
+                        <h6 class="card-title fw-bold text-dark mb-1">Jonathan Joel González Rodas</h6>
+                        <p class="card-text text-secondary small mb-0">Revisión y detección de errores</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cristian Josué Hernández López -->
+            <div class="col-md-3 col-sm-4">
+                <div class="card text-center p-2 shadow-sm rounded-3 jornada-card">
+                    <img src="img/Vespertina/6to conta fondo/Cristian Josué Hernández López.jpg" class="card-img-top rounded mb-2" alt="Cristian Josué Hernández López" style="height: 300px; object-fit: cover;">
+                    <div class="card-body p-0">
+                        <span class="badge px-2 py-1 rounded-pill mb-1" style="background-color: #19f1f1; color: #111827;">Administrador Web</span>
+                        <h6 class="card-title fw-bold text-dark mb-1">Cristian Josué Hernández López</h6>
+                        <p class="card-text text-secondary small mb-0">Publicación y mantenimiento web</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Herramientas Utilizadas -->
+        <div class="text-center mb-5">
+            <h2 class="section-title fw-bold text-dark position-relative d-inline-block pb-2" style="border-bottom: 3px solid #facc15;">
+                Tecnologías Utilizadas
+            </h2>
+        </div>
+        <div class="row g-4 justify-content-center text-center">
+            
+            <div class="col-md-3 col-6">
+                <div class="card p-4 shadow-sm rounded-3 jornada-card h-100 border-0">
+                    <div class="tool-icon">🛠️</div>
+                    <h5 class="fw-bold text-dark">HTML5</h5>
+                    <p class="text-muted small mb-0">Estructura Base</p>
+                </div>
+            </div>
+            
+            <div class="col-md-3 col-6">
+                <div class="card p-4 shadow-sm rounded-3 jornada-card h-100 border-0">
+                    <div class="tool-icon">🎨</div>
+                    <h5 class="fw-bold text-dark">CSS3</h5>
+                    <p class="text-muted small mb-0">Estilos Personalizados</p>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-6">
+                <div class="card p-4 shadow-sm rounded-3 jornada-card h-100 border-0">
+                    <div class="tool-icon">🅱️</div>
+                    <h5 class="fw-bold text-dark">Bootstrap 5</h5>
+                    <p class="text-muted small mb-0">Diseño Responsivo</p>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-6">
+                <div class="card p-4 shadow-sm rounded-3 jornada-card h-100 border-0">
+                    <div class="tool-icon">⚡</div>
+                    <h5 class="fw-bold text-dark">JavaScript</h5>
+                    <p class="text-muted small mb-0">Interactividad</p>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer class="bg-custom-dark text-white-50 text-center py-4 border-top border-warning border-2 mt-5">
+        <div class="container">
+            <p class="mb-1 text-white-50">&copy; 2026 Instituto Profesional de Computación - 6to Perito Contador.</p>
+            <small class="text-muted">Desarrollado con orgullo para nuestra promoción.</small>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

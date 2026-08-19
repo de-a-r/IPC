@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anuario Escolar - Inicio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f8fafc; /* Gris muy claro texturizado */
+            color: #212529;
+        }
+        
+        /* Paleta de colores ajustada */
+        .bg-custom-dark {
+            background-color: #111827; /* Negro/Gris oscuro profundo */
+        }
+        
+        .navbar-brand {
+            font-family: 'Cinzel', serif;
+            color: #38bdf8 !important; /* Celeste brillante */
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        
+        .nav-link {
+            color: #e2e8f0 !important; /* Gris claro/plateado */
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: #facc15 !important; /* Amarillo brillante en hover */
+        }
+        
+        /* Estilo del Banner Principal */
+        .hero-section {
+            background: linear-gradient(135deg, #111827 0%, #1f2937 100%);
+            color: #ffffff;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 5px solid #38bdf8; /* Línea celeste inferior */
+        }
+
+        .hero-title {
+            font-family: 'Cinzel', serif;
+            color: #ffffff;
+            font-weight: 700;
+        }
+
+        .text-yellow {
+            color: #facc15; /* Amarillo de acento */
+        }
+        
+        .btn-celeste {
+            background-color: #38bdf8;
+            color: #111827;
+            font-weight: 600;
+            border: 1px solid #38bdf8;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-celeste:hover {
+            background-color: #facc15;
+            border-color: #facc15;
+            color: #111827;
+            transform: translateY(-2px);
+        }
+
+        /* Tarjetas de jornadas */
+        .jornada-card {
+            border: 1px solid #e2e8f0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            background: #ffffff;
+        }
+
+        .jornada-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(56, 189, 248, 0.15) !important;
+            border-color: #38bdf8; /* Borde celeste en hover */
+        }
+        
+        .badge-matutina {
+            background-color: #38bdf8;
+            color: #111827;
+        }
+
+        .badge-vespertina {
+            background-color: #facc15;
+            color: #111827;
+        }
+
+        .badge-sabatina {
+            background-color: #6b7280; /* Gris plateado */
+            color: #ffffff;
+        }
+
+        .btn-action {
+            background-color: #111827;
+            color: #ffffff;
+            border: 1px solid #38bdf8;
+            transition: all 0.2s;
+        }
+
+        .btn-action:hover {
+            background-color: #38bdf8;
+            color: #111827;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg bg-custom-dark sticky-top shadow">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-mortarboard-fill me-2 text-yellow" viewBox="0 0 16 16">
+                    <path d="M8.211 2.047a.5.5 0 0 0-.422 0l-7.5 3.5a.5.5 0 0 0 .025.917l7.5 3a.5.5 0 0 0 .372 0L14 7.14V13a1 1 0 0 0-1 1v2h3v-2a1 1 0 0 0-1-1V6.739l.686-.275a.5.5 0 0 0 .025-.917z"/>
+                    <path d="M4.176 9.032a.5.5 0 0 0-.656.327l-.5 1.7a.5.5 0 0 0 .294.605l4.5 1.8a.5.5 0 0 0 .372 0l4.5-1.8a.5.5 0 0 0 .294-.605l-.5-1.7a.5.5 0 0 0-.656-.327L8 10.466z"/>
+                </svg>
+                ANUARIO IPC
+            </a>
+            <button class="navbar-toggler navbar-dark border-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto text-center">
+                    <li class="nav-item px-2">
+                        <a class="nav-link" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item px-2">
+                        <a class="nav-link" href="matutina.html">Matutina</a>
+                    </li>
+                    <li class="nav-item px-2">
+                        <a class="nav-link" href="vespertina.html">Vespertina</a>
+                    </li>
+                    <li class="nav-item px-2">
+                        <a class="nav-link" href="Creditos.html">creditos</a>
+                    </li>
+                    <li class="nav-item px-2">
+                        <a class="nav-link" href="Muroderecuerdos.html">muro de recuerdos</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-section py-5 d-flex align-items-center" style="min-height: 450px;">
+        <div class="container position-relative" style="z-index: 2;">
+            <div class="row align-items-center">
+                <div class="col-lg-7 text-center text-lg-start">
+                    <span class="text-uppercase fw-bold text-white-50 tracking-wider small d-block mb-2">Anuario Escolar Digital</span>
+                    <h1 class="display-3 hero-title mb-3">Generación <span class="text-yellow">2026</span></h1>
+                    <p class="lead mb-4 fs-5" style="color: #cbd5e1;">Instituto Profesional de Computación. Reír; llorar; sentir la libertad de una voz privilegiada que sabe decir lo que solo hemos intuido. Es para eso que leemos</p>
+                    <a href="#jornadas" class="btn btn-celeste btn-lg px-4 py-2 shadow-sm">Explorar Jornadas</a>
+                </div>
+            <div class="col-lg-5 d-none d-lg-block text-center">
+                <div class=" mx-auto d-flex align-items-center justify-content-center " style="width: 240px; height: 300px; overflow: hidden;">
+                    <img src="img/logotipo.jpg" alt="Logo IPC Villa Nueva" class="img-fluid rounded-circle" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+            </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container py-5 my-3" id="jornadas">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold text-dark position-relative d-inline-block pb-2" style="font-family: 'Cinzel', serif; border-bottom: 3px solid #38bdf8;">
+                Nuestras Jornadas
+            </h2>
+            <p class="text-muted mt-2">Selecciona un turno para acceder a la galería de fotos y los perfiles de los estudiantes.</p>
+        </div>
+
+        <div class="row g-4 justify-content-center">
+            <div class="col-md-4" id="matutina">
+                <div class="card h-100 text-center p-4 shadow-sm rounded-3 jornada-card">
+                    <div class="card-body d-flex flex-column justify-content-between">
+                        <div>
+                            <span class="badge px-3 py-2 rounded-pill mb-3 badge-matutina fw-bold">TURNO MAÑANA</span>
+                            <h3 class="card-title h4 fw-bold text-dark mb-3">Primero Basico A</h3>
+                            <p class="card-text text-secondary mb-4">Ingresa para ver las fotos oficiales y recuerdos del bloque matutino.</p>
+                        </div>
+                        <a href="1roA.html" class="btn btn-action w-100 py-2 shadow-sm">Ver Estudiantes</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4" id="vespertina">
+                <div class="card h-100 text-center p-4 shadow-sm rounded-3 jornada-card">
+                    <div class="card-body d-flex flex-column justify-content-between">
+                        <div>
+                            <span class="badge px-3 py-2 rounded-pill mb-3 badge-matutina fw-bold">TURNO MAÑANA</span>
+                            <h3 class="card-title h4 fw-bold text-dark mb-3">Primero Basico B</h3>
+                            <p class="card-text text-secondary mb-4">Explora el listado completo y las memorias del bloque de la tarde.</p>
+                        </div>
+                        <a href="1roB.html" class="btn btn-action w-100 py-2 shadow-sm">Ver Estudiantes</a>
+                    </div>
+                </div>
+            </div>
+             <div class="row g-4 justify-content-center">
+            <div class="col-md-4" id="matutina">
+                <div class="card h-100 text-center p-4 shadow-sm rounded-3 jornada-card">
+                    <div class="card-body d-flex flex-column justify-content-between">
+                        <div>
+                            <span class="badge px-3 py-2 rounded-pill mb-3 badge-matutina fw-bold">TURNO MAÑANA</span>
+                            <h3 class="card-title h4 fw-bold text-dark mb-3">Segundo Basico A</h3>
+                            <p class="card-text text-secondary mb-4">Ingresa para ver las fotos oficiales y recuerdos del bloque matutino.</p>
+                        </div>
+                        <a href="2doA.html" class="btn btn-action w-100 py-2 shadow-sm">Ver Estudiantes</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4" id="vespertina">
+                <div class="card h-100 text-center p-4 shadow-sm rounded-3 jornada-card">
+                    <div class="card-body d-flex flex-column justify-content-between">
+                        <div>
+                            <span class="badge px-3 py-2 rounded-pill mb-3 badge-matutina fw-bold">TURNO MAÑANA</span>
+                            <h3 class="card-title h4 fw-bold text-dark mb-3">Segundo Basico B</h3>
+                            <p class="card-text text-secondary mb-4">Explora el listado completo y las memorias del bloque de la tarde.</p>
+                        </div>
+                        <a href="2doB.html" class="btn btn-action w-100 py-2 shadow-sm">Ver Estudiantes</a>
+                    </div>
+                </div>
+            </div>
+             <div class="row g-4 justify-content-center">
+            <div class="col-md-4" id="matutina">
+                <div class="card h-100 text-center p-4 shadow-sm rounded-3 jornada-card">
+                    <div class="card-body d-flex flex-column justify-content-between">
+                        <div>
+                            <span class="badge px-3 py-2 rounded-pill mb-3 badge-matutina fw-bold">TURNO MAÑANA</span>
+                            <h3 class="card-title h4 fw-bold text-dark mb-3">Tercero Basico A</h3>
+                            <p class="card-text text-secondary mb-4">Ingresa para ver las fotos oficiales y recuerdos del bloque matutino.</p>
+                        </div>
+                        <a href="3roA.html" class="btn btn-action w-100 py-2 shadow-sm">Ver Estudiantes</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4" id="vespertina">
+                <div class="card h-100 text-center p-4 shadow-sm rounded-3 jornada-card">
+                    <div class="card-body d-flex flex-column justify-content-between">
+                        <div>
+                            <span class="badge px-3 py-2 rounded-pill mb-3 badge-matutina fw-bold">TURNO MAÑANA</span>
+                            <h3 class="card-title h4 fw-bold text-dark mb-3">Tercero Basico B</h3>
+                            <p class="card-text text-secondary mb-4">Explora el listado completo y las memorias del bloque de la tarde.</p>
+                        </div>
+                        <a href="3roB.html" class="btn btn-action w-100 py-2 shadow-sm">Ver Estudiantes</a>
+                    </div>
+                </div>
+            </div>
+             <div class="row g-4 justify-content-center">
+            <div class="col-md-4" id="matutina">
+                <div class="card h-100 text-center p-4 shadow-sm rounded-3 jornada-card">
+                    <div class="card-body d-flex flex-column justify-content-between">
+                        <div>
+                            <span class="badge px-3 py-2 rounded-pill mb-3 badge-matutina fw-bold">TURNO MAÑANA</span>
+                            <h3 class="card-title h4 fw-bold text-dark mb-3">Cuarto Bachillerato A</h3>
+                            <p class="card-text text-secondary mb-4">Ingresa para ver las fotos oficiales y recuerdos del bloque matutino.</p>
+                        </div>
+                        <a href="4tobachA.html" class="btn btn-action w-100 py-2 shadow-sm">Ver Estudiantes</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4" id="vespertina">
+                <div class="card h-100 text-center p-4 shadow-sm rounded-3 jornada-card">
+                    <div class="card-body d-flex flex-column justify-content-between">
+                        <div>
+                           <span class="badge px-3 py-2 rounded-pill mb-3 badge-matutina fw-bold">TURNO MAÑANA</span>
+                            <h3 class="card-title h4 fw-bold text-dark mb-3">Cuarto Bachillerato b</h3>
+                            <p class="card-text text-secondary mb-4">Explora el listado completo y las memorias del bloque de la tarde.</p>
+                        </div>
+                        <a href="4tobachB.html" class="btn btn-action w-100 py-2 shadow-sm">Ver Estudiantes</a>
+                    </div>
+                </div>
+            </div>
+             <div class="row g-4 justify-content-center">
+            <div class="col-md-4" id="matutina">
+                <div class="card h-100 text-center p-4 shadow-sm rounded-3 jornada-card">
+                    <div class="card-body d-flex flex-column justify-content-between">
+                        <div>
+                            <span class="badge px-3 py-2 rounded-pill mb-3 badge-matutina fw-bold">TURNO MAÑANA</span>
+                            <h3 class="card-title h4 fw-bold text-dark mb-3">Cuarto Diseño</h3>
+                            <p class="card-text text-secondary mb-4">Ingresa para ver las fotos oficiales y recuerdos del bloque matutino.</p>
+                        </div>
+                        <a href="4todiseño.html" class="btn btn-action w-100 py-2 shadow-sm">Ver Estudiantes</a>
+                    </div>
+                </div>
+            </div>
+    </main>
+
+    <footer class="bg-custom-dark text-white-50 text-center py-4 border-top border-warning border-2">
+        <div class="container">
+            <p class="mb-0" style="font-family: 'Cinzel', serif;">&copy; 2026 Instituto Profesional de Computación. Todos los derechos reservados.</p>
+            <small class="text-muted">Estilo Moderno: Celeste, Amarillo & Negro.</small>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

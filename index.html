@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anuario Escolar - Inicio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f8fafc; /* Gris muy claro texturizado */
+            color: #212529;
+        }
+        
+        /* Paleta de colores ajustada */
+        .bg-custom-dark {
+            background-color: #111827; /* Negro/Gris oscuro profundo */
+        }
+        
+        .navbar-brand {
+            font-family: 'Cinzel', serif;
+            color: #38bdf8 !important; /* Celeste brillante */
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        
+        .nav-link {
+            color: #e2e8f0 !important; /* Gris claro/plateado */
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: #facc15 !important; /* Amarillo brillante en hover */
+        }
+        
+        /* Estilo del Banner Principal */
+        .hero-section {
+            background: linear-gradient(135deg, #111827 0%, #1f2937 100%);
+            color: #ffffff;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 5px solid #38bdf8; /* Línea celeste inferior */
+        }
+
+        .hero-title {
+            font-family: 'Cinzel', serif;
+            color: #ffffff;
+            font-weight: 700;
+        }
+
+        .text-yellow {
+            color: #facc15; /* Amarillo de acento */
+        }
+        
+        .btn-celeste {
+            background-color: #38bdf8;
+            color: #111827;
+            font-weight: 600;
+            border: 1px solid #38bdf8;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-celeste:hover {
+            background-color: #facc15;
+            border-color: #facc15;
+            color: #111827;
+            transform: translateY(-2px);
+        }
+
+        /* Tarjetas de jornadas */
+        .jornada-card {
+            border: 1px solid #e2e8f0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            background: #ffffff;
+        }
+
+        .jornada-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(56, 189, 248, 0.15) !important;
+            border-color: #38bdf8; /* Borde celeste en hover */
+        }
+        
+        .badge-matutina {
+            background-color: #38bdf8;
+            color: #111827;
+        }
+
+        .badge-vespertina {
+            background-color: #facc15;
+            color: #111827;
+        }
+
+        .badge-sabatina {
+            background-color: #6b7280; /* Gris plateado */
+            color: #ffffff;
+        }
+
+        .btn-action {
+            background-color: #111827;
+            color: #ffffff;
+            border: 1px solid #38bdf8;
+            transition: all 0.2s;
+        }
+
+        .btn-action:hover {
+            background-color: #38bdf8;
+            color: #111827;
+        }
+
+        /* Estilo para la tarjeta cuando es encontrada por el buscador */
+        .highlight-card {
+            border: 2px solid #facc15 !important;
+            box-shadow: 0 0 20px rgba(250, 204, 21, 0.6) !important;
+            transform: scale(1.03);
+            transition: all 0.4s ease;
+        }
+
+        /* Estilo para los resultados de búsqueda flotantes */
+        .search-results-dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            z-index: 1050;
+            max-height: 250px;
+            overflow-y: auto;
+            background-color: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            margin-top: 5px;
+        }
+        
+        .search-item {
+            cursor: pointer;
+            transition: background-color 0.2s;
+            color: #212529;
+        }
+        
+        .search-item:hover {
+            background-color: #f8fafc;
+            color: #38bdf8;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg bg-custom-dark sticky-top shadow">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-mortarboard-fill me-2 text-yellow" viewBox="0 0 16 16">
+                    <path d="M8.211 2.047a.5.5 0 0 0-.422 0l-7.5 3.5a.5.5 0 0 0 .025.917l7.5 3a.5.5 0 0 0 .372 0L14 7.14V13a1 1 0 0 0-1 1v2h3v-2a1 1 0 0 0-1-1V6.739l.686-.275a.5.5 0 0 0 .025-.917z"/>
+                    <path d="M4.176 9.032a.5.5 0 0 0-.656.327l-.5 1.7a.5.5 0 0 0 .294.605l4.5 1.8a.5.5 0 0 0 .372 0l4.5-1.8a.5.5 0 0 0 .294-.605l-.5-1.7a.5.5 0 0 0-.656-.327L8 10.466z"/>
+                </svg>
+                ANUARIO IPC
+            </a>
+            <button class="navbar-toggler navbar-dark border-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto text-center">
+                    <li class="nav-item px-2">
+                        <a class="nav-link" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item px-2">
+                        <a class="nav-link" href="matutina.html">Matutina</a>
+                    </li>
+                    <li class="nav-item px-2">
+                        <a class="nav-link" href="vespertina.html">Vespertina</a>
+                    </li>
+                    <li class="nav-item px-2">
+                        <a class="nav-link" href="creditos.html">Creditos</a>
+                    </li>
+                    <li class="nav-item px-2">
+                        <a class="nav-link" href="Muroderecuerdos.html">Muro de recuerdos</a>
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+<header class="bg-custom-dark text-white text-center py-4 border-bottom border-4 border-info">
+    <div class="container">
+        
+        <h1 class="display-5 fw-bold text-uppercase tracking-wide" style="font-family: 'Cinzel', serif;">Galería de Graduandos</h1>
+        <p class="text-white-50 lead mb-3">Instituto Profesional de Computación</p>
+        
+     <!-- Buscador centrado -->
+<div class="row justify-content-center">
+    <div class="col-12 col-sm-10 col-md-8 col-lg-6 position-relative">
+        
+        <div class="input-group shadow-sm border rounded-3 overflow-hidden">
+            
+            <span class="input-group-text bg-white text-info border-0">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                     width="16"
+                     height="16"
+                     fill="currentColor"
+                     class="bi bi-search"
+                     viewBox="0 0 16 16">
+
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                </svg>
+            </span>
+
+            <input
+                type="text"
+                id="buscadorGlobal"
+                class="form-control border-0 px-3"
+                placeholder="Escribe el nombre del estudiante..."
+                autocomplete="off"
+            >
+
+        </div>
+
+        <!-- Lista de resultados -->
+        <ul id="listaResultados"
+            class="list-group search-results-dropdown text-start">
+        </ul>
+
+    </div>
+</div>
+
+</header>
+    <main class="container py-5 my-3" id="jornadas">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold text-dark position-relative d-inline-block pb-2" style="font-family: 'Cinzel', serif; border-bottom: 3px solid #38bdf8;">
+                Nuestras Jornadas
+            </h2>
+            <p class="text-muted mt-2">Selecciona un turno para acceder a la galería de fotos y los perfiles de los estudiantes.</p>
+        </div>
+
+        <div class="row g-4 justify-content-center">
+            <div class="col-md-4" id="matutina">
+                <div class="card h-100 text-center p-4 shadow-sm rounded-3 jornada-card">
+                    <div class="card-body d-flex flex-column justify-content-between">
+                        <div>
+                            <span class="badge px-3 py-2 rounded-pill mb-3 badge-matutina fw-bold">TURNO MAÑANA</span>
+                            <h3 class="card-title h4 fw-bold text-dark mb-3">Jornada Matutina</h3>
+                            <p class="card-text text-secondary mb-4">Ingresa para ver las fotos oficiales y recuerdos del bloque matutino.</p>
+                        </div>
+                        <a href="matutina.html" class="btn btn-action w-100 py-2 shadow-sm">Ver Estudiantes</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4" id="vespertina">
+                <div class="card h-100 text-center p-4 shadow-sm rounded-3 jornada-card">
+                    <div class="card-body d-flex flex-column justify-content-between">
+                        <div>
+                            <span class="badge px-3 py-2 rounded-pill mb-3 badge-vespertina fw-bold">TURNO TARDE</span>
+                            <h3 class="card-title h4 fw-bold text-dark mb-3">Jornada Vespertina</h3>
+                            <p class="card-text text-secondary mb-4">Explora el listado completo y las memorias del bloque de la tarde.</p>
+                        </div>
+                        <a href="vespertina.html" class="btn btn-action w-100 py-2 shadow-sm">Ver Estudiantes</a>
+                    </div>
+                </div>
+            </div>
+
+           
+        </div>
+    </main>
+
+    <footer class="bg-custom-dark text-white-50 text-center py-4 border-top border-warning border-2">
+        <div class="container">
+            <p class="mb-1 text-white-50">&copy; 2026 Instituto Profesional de Computación.</p>
+            <small class="text-muted">Estilo Moderno: Celeste, Amarillo & Negro.</small>
+        </div>
+    </footer>
+    
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
+    const inputBusqueda = document.getElementById('buscadorGlobal');
+    const listaResultados = document.getElementById('listaResultados');
+
+    // 1. BASE DE DATOS DE ESTUDIANTES: 
+    // Aquí debes agregar a todos los estudiantes y el nombre del archivo HTML donde están sus fotos
+   const indiceEstudiantes = [
+    // 1ro Básico "A"
+    { nombre: "Abner Alberto Jetellá Ordoñez", pagina: "1roA.html", seccion: "1ro A" },
+    { nombre: "Anderson Emanuel Garcia Rodriguez", pagina: "1roA.html", seccion: "1ro A" },
+    { nombre: "Andruw Yeshua Zepeda Alvarez", pagina: "1roA.html", seccion: "1ro A" },
+    { nombre: "Ashley Waleska Gordillo Montes", pagina: "1roA.html", seccion: "1ro A" },
+    { nombre: "Astrid Mayerly Bailón Aguilar", pagina: "1roA.html", seccion: "1ro A" },
+    { nombre: "Cristel Leonely Chajón Garcia", pagina: "1roA.html", seccion: "1ro A" },
+    { nombre: "Dulce Mariajosé Ajanel Chó", pagina: "1roA.html", seccion: "1ro A" },
+    { nombre: "Eboni Rachell Vasquez Samayoa", pagina: "1roA.html", seccion: "1ro A" },
+    { nombre: "Esther Abigail Ramirez Malín", pagina: "1roA.html", seccion: "1ro A" },
+    { nombre: "Estuardo Noe Perez Marroquin", pagina: "1roA.html", seccion: "1ro A" },
+    { nombre: "Fatima Clara Esperanza Sánchez Morales", pagina: "1roA.html", seccion: "1ro A" },
+    { nombre: "Gustavo Isaias Reyna Marroquín", pagina: "1roA.html", seccion: "1ro A" },
+    { nombre: "Hanelly Yarely Chavez Rojas", pagina: "1roA.html", seccion: "1ro A" },
+    { nombre: "Heilyn Joely Ordoñez Vargas", pagina: "1roA.html", seccion: "1ro A" },
+    { nombre: "Herick Daniel Puac Minchez", pagina: "1roA.html", seccion: "1ro A" },
+    { nombre: "Joshua Javier Bautista Jimenez", pagina: "1roA.html", seccion: "1ro A" },
+    { nombre: "Josué Elias Hernandez Alonzo", pagina: "1roA.html", seccion: "1ro A" },
+    { nombre: "Josué Emanuel Coyoy Hernández", pagina: "1roA.html", seccion: "1ro A" },
+    { nombre: "Luis Daniel Vasquez Bac", pagina: "1roA.html", seccion: "1ro A" },
+    { nombre: "Migdalia Angélica Arevalo Macal", pagina: "1roA.html", seccion: "1ro A" },
+    { nombre: "Monica Ashly Mishell Rosales Gimenez", pagina: "1roA.html", seccion: "1ro A" },
+    { nombre: "Nubia Nohemy Chel Cao", pagina: "1roA.html", seccion: "1ro A" },
+    { nombre: "Pablo Sebastian Matias Dominguez", pagina: "1roA.html", seccion: "1ro A" },
+    { nombre: "Rosmery Elizabeth Hernández Cervantes", pagina: "1roA.html", seccion: "1ro A" },
+    { nombre: "Sara Gabriela Riz Franco", pagina: "1roA.html", seccion: "1ro A" },
+    { nombre: "Susana Isabel Salguero Lorenzo", pagina: "1roA.html", seccion: "1ro A" },
+    { nombre: "William Manuel Lopez López", pagina: "1roA.html", seccion: "1ro A" },
+    { nombre: "Yaseily Yaneth Garcia De Leon", pagina: "1roA.html", seccion: "1ro A" },
+    { nombre: "Yoselin Tatiana Medina Gutierrez", pagina: "1roA.html", seccion: "1ro A" },
+
+    // 1ro Básico "B"
+    { nombre: "Álvaro Ivan Gutierrez Rivera", pagina: "1roB.html", seccion: "1ro B" },
+    { nombre: "Angel José Contreras Uyun", pagina: "1roB.html", seccion: "1ro B" },
+    { nombre: "Angel Moisés Divas Rafael", pagina: "1roB.html", seccion: "1ro B" },
+    { nombre: "Anthony Jadiel Mazariegos Vasquez", pagina: "1roB.html", seccion: "1ro B" },
+    { nombre: "Axel Leonel Rivera Martinez", pagina: "1roB.html", seccion: "1ro B" },
+    { nombre: "Bryan Mateo Mejia Macario", pagina: "1roB.html", seccion: "1ro B" },
+    { nombre: "Christopher Antonio Emmanuel Pocon", pagina: "1roB.html", seccion: "1ro B" },
+    { nombre: "Dayrin Urbina Boctzoc Ichich", pagina: "1roB.html", seccion: "1ro B" },
+    { nombre: "Diego Emmanuel Morales López", pagina: "1roB.html", seccion: "1ro B" },
+    { nombre: "Dilan Estiven García Narváez", pagina: "1roB.html", seccion: "1ro B" },
+    { nombre: "Estefani Dayana Alvizures Sipaque", pagina: "1roB.html", seccion: "1ro B" },
+    { nombre: "Fátima Andrea Recinos García", pagina: "1roB.html", seccion: "1ro B" },
+    { nombre: "Génesis Gabriela Hernández Andrés", pagina: "1roB.html", seccion: "1ro B" },
+    { nombre: "Jhonatan David Ramirez Jiménez", pagina: "1roB.html", seccion: "1ro B" },
+    { nombre: "Jorge Luis Salvado López", pagina: "1roB.html", seccion: "1ro B" },
+    { nombre: " Jordan Estuardo Archila Ortiz", pagina: "1roB.html", seccion: "1ro B" },
+    { nombre: "Julio Josué Contreras Uyun", pagina: "1roB.html", seccion: "1ro B" },
+    { nombre: "Keslher Gedeoni De La Roca Saldaña", pagina: "1roB.html", seccion: "1ro B" },
+    { nombre: "María Alejandra Vásquez Cadenas", pagina: "1roB.html", seccion: "1ro B" },
+    { nombre: "Melany Carolina Patzán Pío", pagina: "1roB.html", seccion: "1ro B" },
+    { nombre: "Melany Fabiola Ramírez Valenzuela", pagina: "1roB.html", seccion: "1ro B" },
+    { nombre: "Michael Josué Guerra Audon", pagina: "1roB.html", seccion: "1ro B" },
+    { nombre: "Osmar Alexander Lutin Gamarro", pagina: "1roB.html", seccion: "1ro B" },
+    { nombre: "Pablo Alexander Salgado López", pagina: "1roB.html", seccion: "1ro B" },
+    { nombre: "Paola Génesis Lancerio Romero", pagina: "1roB.html", seccion: "1ro B" },
+    { nombre: "Sander Gael Gordillo Casasola", pagina: "1roB.html", seccion: "1ro B" },
+   
+
+    // 2do Básico "A"
+    { nombre: "Anita Susana Romero Pantaleón", pagina: "2doA.html", seccion: "2do A" },
+    { nombre: "Anyely Melissa García Castro", pagina: "2doA.html", seccion: "2do A" },
+    { nombre: "Carlos Alberto Arias Rodríguez", pagina: "2doA.html", seccion: "2do A" },
+    { nombre: "Catherine Sulcely Martinez Obispo", pagina: "2doA.html", seccion: "2do A" },
+    { nombre: "Diego Alfonso Ujpan López", pagina: "2doA.html", seccion: "2do A" },
+    { nombre: "Dulce Nohemí Pérez Pérez", pagina: "2doA.html", seccion: "2do A" },
+    { nombre: "Elie Jimena Zet Alay", pagina: "2doA.html", seccion: "2do A" },
+    { nombre: "Enrique Emanuel Cayaxón Citalán", pagina: "2doA.html", seccion: "2do A" },
+    { nombre: "Génesis Andrea Piñones Reyes", pagina: "2doA.html", seccion: "2do A" },
+    { nombre: "Jimena Nicol Jiménez Ramos", pagina: "2doA.html", seccion: "2do A" },
+    { nombre: "Jordan Isai Sinar Aguilar", pagina: "2doA.html", seccion: "2do A" },
+    { nombre: "Josseline Alejandra Pablo Leiva", pagina: "2doA.html", seccion: "2do A" },
+    { nombre: "Karen Marisol Luque Mazariegos", pagina: "2doA.html", seccion: "2do A" },
+    { nombre: "Kely Avigail Martinez Chay", pagina: "2doA.html", seccion: "2do A" },
+    { nombre: "Mario Josué Marroquín Hernández", pagina: "2doA.html", seccion: "2do A" },
+    { nombre: "Rosa Isabella Barrios Rodríguez", pagina: "2doA.html", seccion: "2do A" },
+    { nombre: "Sabrina Nicole Matías Martinez", pagina: "2doA.html", seccion: "2do A" },
+    { nombre: "Sergio Daniel Osorio Vasquez", pagina: "2doA.html", seccion: "2do A" },
+    { nombre: "Yareli Ximena Hernández Alburez", pagina: "2doA.html", seccion: "2do A" },
+    { nombre: "Yostin Rigoberto Yanez Vasquez", pagina: "2doA.html", seccion: "2do A" },
+    { nombre: "Zender Johan Andre Ramazzin Juárez", pagina: "2doA.html", seccion: "2do A" },
+
+    // 2do Básico "B"
+    { nombre: "Alan José Cuncua Cuevas", pagina: "2doB.html", seccion: "2do B" },
+    { nombre: "Angel José Julián Getella Pérez", pagina: "2doB.html", seccion: "2do B" },
+    { nombre: "Brandon Elian Gutierrez Solito", pagina: "2doB.html", seccion: "2do B" },
+    { nombre: "Fernando Javier Mayen Cabrera", pagina: "2doB.html", seccion: "2do B" },
+    { nombre: "Génesis Roxana Gómez Mejia", pagina: "2doB.html", seccion: "2do B" },
+    { nombre: "Jannir Alejandra Itzol Monzon", pagina: "2doB.html", seccion: "2do B" },
+    { nombre: "Katerine Mariné Martinez Obispo", pagina: "2doB.html", seccion: "2do B" },
+    { nombre: "Keyli Mariana Ocoix Mendez", pagina: "2doB.html", seccion: "2do B" },
+    { nombre: "MariCarmen Yohalin Pérez García", pagina: "2doB.html", seccion: "2do B" },
+    { nombre: "Marleni Patricia Fuentes Tul", pagina: "2doB.html", seccion: "2do B" },
+    { nombre: "Nataly Angely Torres García", pagina: "2doB.html", seccion: "2do B" },
+    { nombre: "Oliver Anthoand López González", pagina: "2doB.html", seccion: "2do B" },
+    { nombre: "Perla Marisol De la Cruz Noj", pagina: "2doB.html", seccion: "2do B" },
+    { nombre: "Rodrigo Eduardo Hurtado Montepeque", pagina: "2doB.html", seccion: "2do B" },
+    { nombre: "Samuel Abdias Pérez López", pagina: "2doB.html", seccion: "2do B" },
+    { nombre: "Samuel Efrain Pineda Paz", pagina: "2doB.html", seccion: "2do B" },
+    { nombre: "Wendy Sofía López Zetino", pagina: "2doB.html", seccion: "2do B" },
+    { nombre: "Yermi Sahir Guerra Audon", pagina: "2doB.html", seccion: "2do B" },
+    { nombre: "Zeidy Maeli Latín Domínguez", pagina: "2doB.html", seccion: "2do B" },
+
+    // 3ro Básico "A"
+    { nombre: "Anderson Jasiel Grijalva López", pagina: "3roA.html", seccion: "3ro A" },
+    { nombre: "Angy Vanessa Pérez Pascual", pagina: "3roA.html", seccion: "3ro A" },
+    { nombre: "Brayan David García Navarrez", pagina: "3roA.html", seccion: "3ro A" },
+    { nombre: "Carlos Alexander Puac Minchez", pagina: "3roA.html", seccion: "3ro A" },
+    { nombre: "Carlos Augusto Garay Perez", pagina: "3roA.html", seccion: "3ro A" },
+    { nombre: "Cristofer Josue Rodríguez López", pagina: "3roA.html", seccion: "3ro A" },
+    { nombre: "Dana Mishel Gomez Martinez", pagina: "3roA.html", seccion: "3ro A" },
+    { nombre: "Eddy Arnoldo Chibalán Sosof", pagina: "3roA.html", seccion: "3ro A" },
+    { nombre: "Heidria Josmarly Gonzáles Flores", pagina: "3roA.html", seccion: "3ro A" },
+    { nombre: "José Esteban", pagina: "3roA.html", seccion: "3ro A" },
+    { nombre: "Kevin Salvador Juarez Ramírez", pagina: "3roA.html", seccion: "3ro A" },
+    { nombre: "Kimberly Sofia Friely Cabrera", pagina: "3roA.html", seccion: "3ro A" },
+    { nombre: "Lourdes Asusena Lopez Davila", pagina: "3roA.html", seccion: "3ro A" },
+    { nombre: "Luis Alejandro Parada Macha", pagina: "3roA.html", seccion: "3ro A" },
+    { nombre: "Luis Josué Escobar Cruz", pagina: "3roA.html", seccion: "3ro A" },
+    { nombre: "Melanie Jimena García López", pagina: "3roA.html", seccion: "3ro A" },
+    { nombre: "Melvin Asael Hernández Pérez", pagina: "3roA.html", seccion: "3ro A" },
+    { nombre: "Mydeline Nicol Fernández López", pagina: "3roA.html", seccion: "3ro A" },
+    { nombre: "Pablo Adrian Siguaque Estrada", pagina: "3roA.html", seccion: "3ro A" },
+    { nombre: "Saida Marisol Feliciano Miranda", pagina: "3roA.html", seccion: "3ro A" },
+
+    // 3ro Básico "B"
+    { nombre: "Angel Eduardo Sacalxot Cruz", pagina: "3roB.html", seccion: "3ro B" },
+    { nombre: "Ariana Camila Tum Nolasco", pagina: "3roB.html", seccion: "3ro B" },
+    { nombre: "Brandon Antonio Mendez Florian", pagina: "3roB.html", seccion: "3ro B" },
+    { nombre: "Cesar Yadiel Godoy Chital", pagina: "3roB.html", seccion: "3ro B" },
+    { nombre: "Dulce Daniela Villela Gálvez", pagina: "3roB.html", seccion: "3ro B" },
+    { nombre: "Edwin Alexis Macha Quiñonez", pagina: "3roB.html", seccion: "3ro B" },
+    { nombre: "Estefany Mishell López Tinti", pagina: "3roB.html", seccion: "3ro B" },
+    { nombre: "Jackeline Dariana Torres Maldonado", pagina: "3roB.html", seccion: "3ro B" },
+    { nombre: "Jackeline Mishell Mejia Macario", pagina: "3roB.html", seccion: "3ro B" },
+    { nombre: "Jefferson David Rustrian Gómez", pagina: "3roB.html", seccion: "3ro B" },
+    { nombre: "Jefferson Steven Cristales Rivera", pagina: "3roB.html", seccion: "3ro B" },
+    { nombre: "Jehizel Jasiel Toj Rosales", pagina: "3roB.html", seccion: "3ro B" },
+    { nombre: "Kaleb Eliazib Rosales García", pagina: "3roB.html", seccion: "3ro B" },
+    { nombre: "Kenia Cristel Ortiz Ochaita", pagina: "3roB.html", seccion: "3ro B" },
+    { nombre: "Kleiver Osvanni Barrillas Calderas", pagina: "3roB.html", seccion: "3ro B" },
+    { nombre: "Lineth Naomy Pérez Pérez", pagina: "3roB.html", seccion: "3ro B" },
+    { nombre: "Maria Concepción Vásquez Guzmán", pagina: "3roB.html", seccion: "3ro B" },
+    { nombre: "Naomi Yanet Cuc Baten", pagina: "3roB.html", seccion: "3ro B" },
+    { nombre: "Roxana Anahi Marcos Leiva", pagina: "3roB.html", seccion: "3ro B" },
+    { nombre: "Yadira Betzave Vasquez Cutiño", pagina: "3roB.html", seccion: "3ro B" },
+    { nombre: "Yuliana Yamilet Vasquez Dieguez", pagina: "3roB.html", seccion: "3ro B" },
+
+
+// Diseño Gráfico (4to Diseño / Imagen proporcionada)
+    { nombre: "Alex Giovanni Jiménez Ramos", pagina: "4todiseño.html", seccion: "Diseño Gráfico" },
+    { nombre: "Alisson Nahomi Mejia Garcia", pagina: "4todiseño.html", seccion: "Diseño Gráfico" },
+    { nombre: "Allison Tamileth Serrano Parada", pagina: "4todiseño.html", seccion: "Diseño Gráfico" },
+    { nombre: "Daniela Sarai Villatoro Ramirez", pagina: "4todiseño.html", seccion: "Diseño Gráfico" },
+    { nombre: "Daphne Sofía Orantes Arroyo", pagina: "4todiseño.html", seccion: "Diseño Gráfico" },
+    { nombre: "Emily Alessandra Aquino Herrera", pagina: "4todiseño.html", seccion: "Diseño Gráfico" },
+    { nombre: "Eunice Abigail Riso Dionicio", pagina: "4todiseño.html", seccion: "Diseño Gráfico" },
+    { nombre: "Fernando Daniel Carrillo Ramírez", pagina: "4todiseño.html", seccion: "Diseño Gráfico" },
+    { nombre: "Flor de María Velasquez Gómez", pagina: "4todiseño.html", seccion: "Diseño Gráfico" },
+    { nombre: "Génesis Adriana Estrella Pérez Ruiz", pagina: "4todiseño.html", seccion: "Diseño Gráfico" },
+    { nombre: "Ingrid Fabiola Vasquez Vasquez", pagina: "4todiseño.html", seccion: "Diseño Gráfico" },
+    { nombre: "Jennifer Abigail Contreras Monterroso", pagina: "4todiseño.html", seccion: "Diseño Gráfico" },
+    { nombre: "Margareth Rubi Barrios Gonzalez", pagina: "4todiseño.html", seccion: "Diseño Gráfico" },
+    { nombre: "Rodrigo Miguel Velasquez Zacarías", pagina: "4todiseño.html", seccion: "Diseño Gráfico" },
+    // 4to Administración
+    { nombre: "Alisson Saraí Romero Rosa", pagina: "4toAdmin.html", seccion: "4to Administración" },
+    { nombre: "Frank Yahir Salvador Marchorro González", pagina: "4toAdmin.html", seccion: "4to Administración" },
+    { nombre: "Juan José Aceituno Zepeda", pagina: "4toAdmin.html", seccion: "4to Administración" },
+    { nombre: "Marlin Gricelda Duran González", pagina: "4toAdmin.html", seccion: "4to Administración" },
+    { nombre: "Martín Samuel Erazo Caldero", pagina: "4toAdmin.html", seccion: "4to Administración" },
+    { nombre: "Marylin Pamela Tupul Carrera", pagina: "4toAdmin.html", seccion: "4to Administración" },
+    { nombre: "Michael Antonio Juarros Paz", pagina: "4toAdmin.html", seccion: "4to Administración" },
+    { nombre: "Yasmí Fabiola fuentes Yos", pagina: "4toAdmin.html", seccion: "4to Administración" },
+// 4to Contador
+    { nombre: "Aylin Melisa Barrios Cardona", pagina: "4toContador.html", seccion: "4to Contador" },
+    { nombre: "Claudia Elizabeth Sotoj Marroquín", pagina: "4toContador.html", seccion: "4to Contador" },
+    { nombre: "Darlyng Samanta Terrón García", pagina: "4toContador.html", seccion: "4to Contador" },
+    { nombre: "Elisabet Noemi González Rodas", pagina: "4toContador.html", seccion: "4to Contador" },
+    { nombre: "Estuardo Vinicio Aguilar Mateo", pagina: "4toContador.html", seccion: "4to Contador" },
+    { nombre: "Kimberly Adriana Hernández Dimas", pagina: "4toContador.html", seccion: "4to Contador" },
+    { nombre: "Kimberly Sarai Chuc Morales", pagina: "4toContador.html", seccion: "4to Contador" },
+    { nombre: "Marta Azucena Pirir Álvarez", pagina: "4toContador.html", seccion: "4to Contador" },
+    { nombre: "Nayeli Fernanda Garcia Zúñiga", pagina: "4toContador.html", seccion: "4to Contador" },
+    { nombre: "Obed Joselito Morales De La Cruz", pagina: "4toContador.html", seccion: "4to Contador" },
+    { nombre: "Rigoberto Elías Pérez Álvarez", pagina: "4toContador.html", seccion: "4to Contador" },
+    { nombre: "Vivian Elizabeth Giménez Cuc", pagina: "4toContador.html", seccion: "4to Contador" },
+    { nombre: "Wendy Paola Chitic Xirum", pagina: "4toContador.html", seccion: "4to Contador" },
+    { nombre: "Wilber Ernesto Garcia You", pagina: "4toContador.html", seccion: "4to Contador" },
+    // 4to Secretariado
+    { nombre: "Angielyn Melissa González García", pagina: "4toSecretariado.html", seccion: "4to Secretariado" },
+    { nombre: "Jaquelinne Amisadaí Chicoj Sián", pagina: "4toSecretariado.html", seccion: "4to Secretariado" },
+    { nombre: "Kimberly Brisheth Monzón Pérez", pagina: "4toSecretariado.html", seccion: "4to Secretariado" },
+    { nombre: "Leyli Mariela Beatriz Suar Larias", pagina: "4toSecretariado.html", seccion: "4to Secretariado" },
+    { nombre: "Nataly Pamela Gabriel Sánchez", pagina: "4toSecretariado.html", seccion: "4to Secretariado" },
+    { nombre: "Sandra Carolina de Leon Ramírez", pagina: "4toSecretariado.html", seccion: "4to Secretariado" },
+    { nombre: "Sulema Nicol Godínez Muñoz", pagina: "4toSecretariado.html", seccion: "4to Secretariado" },
+
+    // 5to Administración
+    { nombre: "Alisson Saraí Nolasco Yool", pagina: "5toAdmin.html", seccion: "5to Administración" },
+    { nombre: "Allíson Rosmery Noj González", pagina: "5toAdmin.html", seccion: "5to Administración" },
+    { nombre: "Allisson Saraí González Ortega", pagina: "5toAdmin.html", seccion: "5to Administración" },
+    { nombre: "Antony Rafael Oscal Mansilla", pagina: "5toAdmin.html", seccion: "5to Administración" },
+    { nombre: "Astrid Selena García Godoy", pagina: "5toAdmin.html", seccion: "5to Administración" },
+    { nombre: "Aylin Jimena Coj Velásquez", pagina: "5toAdmin.html", seccion: "5to Administración" },
+    { nombre: "Brenda Sucely Tiul Vicente", pagina: "5toAdmin.html", seccion: "5to Administración" },
+    { nombre: "Brittany Esperanza Castro Conde", pagina: "5toAdmin.html", seccion: "5to Administración" },
+    { nombre: "Bryan Alexander Puzul Coché", pagina: "5toAdmin.html", seccion: "5to Administración" },
+    { nombre: "Daine Daniela Vásquez Velásquez", pagina: "5toAdmin.html", seccion: "5to Administración" },
+    { nombre: "Edras Eduardo Méndez Florian", pagina: "5toAdmin.html", seccion: "5to Administración" },
+    { nombre: "Haylin Anaí García López", pagina: "5toAdmin.html", seccion: "5to Administración" },
+    { nombre: "Heydi Nohemí Rivas Herrera", pagina: "5toAdmin.html", seccion: "5to Administración" },
+    { nombre: "Jehimy Daniela Barrios del Cid", pagina: "5toAdmin.html", seccion: "5to Administración" },
+    { nombre: "Jesseni Margarita Méndez Batz", pagina: "5toAdmin.html", seccion: "5to Administración" },
+    { nombre: "Jesús David Coy Girón", pagina: "5toAdmin.html", seccion: "5to Administración" },
+    { nombre: "Katerin Clarissa Parada Gómez", pagina: "5toAdmin.html", seccion: "5to Administración" },
+    { nombre: "Keyla Yamileth Cabrera Aguilar", pagina: "5toAdmin.html", seccion: "5to Administración" },
+    { nombre: "Lizbeth Lorena Solís Sosa", pagina: "5toAdmin.html", seccion: "5to Administración" },
+    { nombre: "Marjorie Yamilet Larias Sontay", pagina: "5toAdmin.html", seccion: "5to Administración" },
+    { nombre: "Rosmery Vicenta Velásquez Zcarias", pagina: "5toAdmin.html", seccion: "5to Administración" },
+    { nombre: "Stephanie Raquel Larias Sontay", pagina: "5toAdmin.html", seccion: "5to Administración" },
+    { nombre: "Von Cristian Agbay Lorenzo", pagina: "5toAdmin.html", seccion: "5to Administración" },
+    { nombre: "Yoisin Hilari Zetino", pagina: "5toAdmin.html", seccion: "5to Administración" },
+
+    // 5to Bachillerato "B"
+    { nombre: "Ana Gabriela Martínez Pérez", pagina: "5toBachB.html", seccion: "5to Bachillerato B" },
+    { nombre: "Angel Ismael Rosales Reyes", pagina: "5toBachB.html", seccion: "5to Bachillerato B" },
+    { nombre: "Angelo Abysai Pelaez Tul", pagina: "5toBachB.html", seccion: "5to Bachillerato B" },
+    { nombre: "Carlos Francisco Antonio Contreras", pagina: "5toBachB.html", seccion: "5to Bachillerato B" },
+    { nombre: "Cristopher Alexander Solano Rivera", pagina: "5toBachB.html", seccion: "5to Bachillerato B" },
+    { nombre: "David Alejandro Ordóñez Itzol", pagina: "5toBachB.html", seccion: "5to Bachillerato B" },
+    { nombre: "Dayana Nicol Batres Alvarado", pagina: "5toBachB.html", seccion: "5to Bachillerato B" },
+    { nombre: "Eduardo Antonio Arrecis Gómez", pagina: "5toBachB.html", seccion: "5to Bachillerato B" },
+    { nombre: "Jeferson Abimael Ramírez Donis", pagina: "5toBachB.html", seccion: "5to Bachillerato B" },
+    { nombre: "Jeimy Aída Herrarte Rodríguez", pagina: "5toBachB.html", seccion: "5to Bachillerato B" },
+    { nombre: "Kevin Omar Alvizures Espinoza", pagina: "5toBachB.html", seccion: "5to Bachillerato B" },
+    { nombre: "Laura Sofía Cashun Urízar", pagina: "5toBachB.html", seccion: "5to Bachillerato B" },
+    { nombre: "Marvin Sebastián Aguilar Mateo", pagina: "5toBachB.html", seccion: "5to Bachillerato B" },
+    { nombre: "Mary Melisa Mejía Macario", pagina: "5toBachB.html", seccion: "5to Bachillerato B" },
+    { nombre: "Maylyn Gimena Lutín Gamarro", pagina: "5toBachB.html", seccion: "5to Bachillerato B" },
+    { nombre: "Rodrigo Alejandro Castellanos Morales", pagina: "5toBachB.html", seccion: "5to Bachillerato B" },
+    { nombre: "Rudy Moisés Morales Sucuquí", pagina: "5toBachB.html", seccion: "5to Bachillerato B" },
+    { nombre: "Sayra Vanesa Coz Jorge", pagina: "5toBachB.html", seccion: "5to Bachillerato B" },
+    { nombre: "Selvin Emanuel Herrera Enríquez", pagina: "5toBachB.html", seccion: "5to Bachillerato B" },
+    { nombre: "Sherly Vanessa Sosa", pagina: "5toBachB.html", seccion: "5to Bachillerato B" },
+    { nombre: "Yeny Yesenia Chivalan Sosof", pagina: "5toBachB.html", seccion: "5to Bachillerato B" },
+
+    // 5to Contador
+    { nombre: "Andrea Gloricel Lara López", pagina: "5toContador.html", seccion: "5to Contador" },
+    { nombre: "Bárbara Alexandra Reyes Isep", pagina: "5toContador.html", seccion: "5to Contador" },
+    { nombre: "Cinthia Analis Chinchilla García", pagina: "5toContador.html", seccion: "5to Contador" },
+    { nombre: "Gladis Luzmila Molina Rodas", pagina: "5toContador.html", seccion: "5to Contador" },
+    { nombre: "Hugo Elias Cocon Gonzáles", pagina: "5toContador.html", seccion: "5to Contador" },
+    { nombre: "Isaías Misael Sul Hernandez", pagina: "5toContador.html", seccion: "5to Contador" },
+    { nombre: "Jaime Rubelsi Lizandro Chó Fajardo", pagina: "5toContador.html", seccion: "5to Contador" },
+    { nombre: "Jefferson Jancarlo Vega Lucas", pagina: "5toContador.html", seccion: "5to Contador" },
+    { nombre: "Josué Abraham Hernandez Robledo", pagina: "5toContador.html", seccion: "5to Contador" },
+    { nombre: "Kenia Fabiola Lares Ixtuc", pagina: "5toContador.html", seccion: "5to Contador" },
+    { nombre: "Kimberly Daniela Rodas Pérez", pagina: "5toContador.html", seccion: "5to Contador" },
+    { nombre: "Natali Gabriela de León Torres", pagina: "5toContador.html", seccion: "5to Contador" },
+
+    { nombre: "Angel Daniel López Noj", pagina: "5toDiseno.html", seccion: "5to Diseño" },
+    { nombre: "Angeline Nicole Friely Cabrera", pagina: "5toDiseno.html", seccion: "5to Diseño" },
+    { nombre: "Dulce María García Güil", pagina: "5toDiseno.html", seccion: "5to Diseño" },
+    { nombre: "Elizabeth Nicol Trejo De La Cruz", pagina: "5toDiseno.html", seccion: "5to Diseño" },
+    { nombre: "Fabián Alejandro Orellana Chacón", pagina: "5toDiseno.html", seccion: "5to Diseño" },
+    { nombre: "Febe Rachel Barcenes López", pagina: "5toDiseno.html", seccion: "5to Diseño" },
+    { nombre: "José Emanuel Trujillo Cruz", pagina: "5toDiseno.html", seccion: "5to Diseño" },
+    { nombre: "José Pablo García Marroquín", pagina: "5toDiseno.html", seccion: "5to Diseño" },
+    { nombre: "Katherine Mishel Rizo Dionicio", pagina: "5toDiseno.html", seccion: "5to Diseño" },
+    { nombre: "Maryori Alondra Herrera García", pagina: "5toDiseno.html", seccion: "5to Diseño" },
+    { nombre: "Mélany Adaly Bravo Romero", pagina: "5toDiseno.html", seccion: "5to Diseño" },
+    { nombre: "Neitan Andre Peralta González", pagina: "5toDiseno.html", seccion: "5to Diseño" },
+
+    // 5to Secretariado
+    { nombre: "Blanca Josefa García Vasquez", pagina: "5toSecretariado.html", seccion: "5to Secretariado" },
+    { nombre: "Lesly Adaly López Juárez", pagina: "5toSecretariado.html", seccion: "5to Secretariado" },
+    { nombre: "Madelyn Yojana Ajanel Celso", pagina: "5toSecretariado.html", seccion: "5to Secretariado" },
+    { nombre: "Wendy Esperanza Jorge Pol", pagina: "5toSecretariado.html", seccion: "5to Secretariado" },
+
+    // 6to Administración
+    { nombre: "Anderson Gabriel Chachalac Santos", pagina: "6toAdministracion.html", seccion: "6to Administración" },
+    { nombre: "Anthony Fabián Hidalgo Tomas", pagina: "6toAdministracion.html", seccion: "6to Administración" },
+    { nombre: "Blanca Isabela Vásquez Chay", pagina: "6toAdministracion.html", seccion: "6to Administración" },
+    { nombre: "Carol Haydee Rosales Gómez", pagina: "6toAdministracion.html", seccion: "6to Administración" },
+    { nombre: "Cristel Anelisse López González", pagina: "6toAdministracion.html", seccion: "6to Administración" },
+    { nombre: "Cristian Joel Carballo Recinos", pagina: "6toAdministracion.html", seccion: "6to Administración" },
+    { nombre: "Estefani Yajaira Figueroa Aquino", pagina: "6toAdministracion.html", seccion: "6to Administración" },
+    { nombre: "Jefferson Stiven Cosajay Cruz", pagina: "6toAdministracion.html", seccion: "6to Administración" },
+    { nombre: "Limny Melissa Alexandra Orellana Garcia", pagina: "6toAdministracion.html", seccion: "6to Administración" },
+    { nombre: "María Luisa Tiño Macario", pagina: "6toAdministracion.html", seccion: "6to Administración" },
+    { nombre: "Maynor Tomás Jorge Pol", pagina: "6toAdministracion.htmll", seccion: "6to Administración" },
+
+    // 6to Contador
+    { nombre: "Abby Desirée Guadalupe Castellanos Acajabón", pagina: "6toContador.html", seccion: "6to Contador" },
+    { nombre: "Alba Marina Ruiz Mendoza", pagina: "6tocontador.html", seccion: "6to Contador" },
+    { nombre: "Brando Emanuel Pérez Valenzuela", pagina: "6toContador.html", seccion: "6to Contador" },
+    { nombre: "Carlos Eduardo Hernández López", pagina: "6toContador.html", seccion: "6to Contador" },
+    { nombre: "Cristian Adolfo Carillo Salazar", pagina: "6toContador.html", seccion: "6to Contador" },
+    { nombre: "Cristian Josué Hernández López", pagina: "6toContador.html", seccion: "6to Contador" },
+    { nombre: "Dayana Eunice Auyón Revolorio", pagina: "6toContador.html", seccion: "6to Contador" },
+    { nombre: "Edgar Josué Morales Loarca", pagina: "6toContador.html", seccion: "6to Contador" },
+    { nombre: "Jonathan Joel González Rodas", pagina: "6toContador.html", seccion: "6to Contador" },
+    { nombre: "Josthyn Eliel Cabrera López", pagina: "6toContador.html", seccion: "6to Contador" },
+    { nombre: "Marta Sofia Hurtado Montepeque", pagina: "6toContador.html", seccion: "6to Contador" },
+    { nombre: "Ruth Nohemy Aguilón Aguilón", pagina: "6toContador.html", seccion: "6to Contador" },
+    { nombre: "Shayna María Daly Felipe Jom", pagina: "6toContador.html", seccion: "6to Contador" },
+    { nombre: "Susana Guadalupe Cabrera Pátzan", pagina: "6toContador.html", seccion: "6to Contador" },
+    { nombre: "Williams Orlando David Pérez López", pagina: "6toContador.html", seccion: "6to Contador" },
+    { nombre: "Yeylin Marely Vázquez Guzmán", pagina: "6toContador.html", seccion: "6to Contador" },
+// 6to Secretariado
+{ nombre: "Cindy Paola Cabrera Palma", pagina: "6toSecretariado.html", seccion: "6to Secretariado" },
+{ nombre: "Gabriela Paola Martínez Chiquichón", pagina: "6toSecretariado.html", seccion: "6to Secretariado" },
+{ nombre: "Ilsi Elisabet Méndez Ortiz", pagina: "6toSecretariado.html", seccion: "6to Secretariado" },
+{ nombre: "Karla Matilde Yol Queijú", pagina: "6toSecretariado.html", seccion: "6to Secretariado" },
+{ nombre: "Lilian Melisa Pascual Pedro", pagina: "6toSecretariado.html", seccion: "6to Secretariado" },
+{ nombre: "Nancy Paola Zepeda Vásquez", pagina: "6toSecretariado.html", seccion: "6to Secretariado" },
+
+// 5to Bachillerato A
+{ nombre: "Adriana Esther Pineda Paz", pagina: "5toBachA.html", seccion: "5to Bachillerato A" },
+{ nombre: "Anderson Abraham Mazariegos López", pagina: "5toBachA.html", seccion: "5to Bachillerato A" },
+{ nombre: "Anthony Edin Gómez Alvarado", pagina: "5toBachA.html", seccion: "5to Bachillerato A" },
+{ nombre: "Britani Jhanyli Castillo Jiménez", pagina: "5toBachA.html", seccion: "5to Bachillerato A" },
+{ nombre: "Byron Estuardo Luna Luna", pagina: "5toBachA.html", seccion: "5to Bachillerato A" },
+{ nombre: "Carlos Andrés Orantes Arroyo", pagina: "5toBachA.html", seccion: "5to Bachillerato A" },
+{ nombre: "Carmen Lisset Herrera Ramírez", pagina: "5toBachA.html", seccion: "5to Bachillerato A" },
+{ nombre: "Daniel de Jesús Agustín Guevara", pagina: "5toBachA.html", seccion: "5to Bachillerato A" },
+{ nombre: "Dayrin Dayana Pérez García", pagina: "5toBachA.html", seccion: "5to Bachillerato A" },
+{ nombre: "Estrella Noemí Puac Minchez", pagina: "5toBachA.html", seccion: "5to Bachillerato A" },
+{ nombre: "Henry Eliud García Arorodriguez", pagina: "5toBachA.html", seccion: "5to Bachillerato A" },
+
+{ nombre: "Ingrid Noemí Ramos Sosa", pagina: "5toBachA.html", seccion: "5to Bachillerato A" },
+{ nombre: "Jeison Fernando Concua Cuevas", pagina: "5toBachA.html", seccion: "5to Bachillerato A" },
+{ nombre: "Jerber Elias Velasquez Cumes", pagina: "5toBachA.html", seccion: "5to Bachillerato A" },
+{ nombre: "Jeremy Tardelí Alfaro Mezquite", pagina: "5toBachA.html", seccion: "5to Bachillerato A" },
+{ nombre: "Jony Leonel Rodríguez Brito", pagina: "5toBachA.html", seccion: "5to Bachillerato A" },
+{ nombre: "Jorge Julio Monroy Ordóñez", pagina: "5toBachA.html", seccion: "5to Bachillerato A" },
+{ nombre: "José Francisco González De Jesús", pagina: "5toBachA.html", seccion: "5to Bachillerato A" },
+{ nombre: "Kimberly Gabriela Barrera Monroy", pagina: "5toBachA.html", seccion: "5to Bachillerato A" },
+{ nombre: "Luis Isaac Alvarado Rodríguez", pagina: "5toBachA.html", seccion: "5to Bachillerato A" },
+{ nombre: "Maria Daniela Garay Pérez", pagina: "5toBachA.html", seccion: "5to Bachillerato A" },
+{ nombre: "Mario André Revolorio Cardona", pagina: "5toBachA.html", seccion: "5to Bachillerato A" },
+{ nombre: "Rudy José Coy", pagina: "5toBachA.html", seccion: "5to Bachillerato A" },
+
+
+
+];
+
+ 
+    // 2. BUSCADOR DINÁMICO (Autocompletado)
+    inputBusqueda.addEventListener('input', function() {
+        const textoBusqueda = this.value.toLowerCase().trim();
+        listaResultados.innerHTML = ''; // Limpiar resultados anteriores
+
+        // Si el buscador está vacío, ocultar la lista
+        if (textoBusqueda === '') {
+            listaResultados.style.display = 'none';
+            return;
+        }
+
+        // Buscar coincidencias
+        const resultados = indiceEstudiantes.filter(estudiante => 
+            estudiante.nombre.toLowerCase().includes(textoBusqueda)
+        );
+
+        // Mostrar resultados
+        if (resultados.length > 0) {
+            listaResultados.style.display = 'block';
+            
+            resultados.forEach(est => {
+                const li = document.createElement('li');
+                li.className = 'list-group-item search-item d-flex justify-content-between align-items-center';
+                li.innerHTML = `
+                    <span class="fw-medium">${est.nombre}</span> 
+                    <span class="badge bg-info text-dark rounded-pill">${est.seccion}</span>
+                `;
+                
+                // Acción al hacer clic en un resultado
+                li.addEventListener('click', () => {
+                    // Redirige al archivo de la sección pasando el nombre para resaltarlo
+                    window.location.href = `${est.pagina}?search=${encodeURIComponent(est.nombre)}`;
+                });
+                
+                listaResultados.appendChild(li);
+            });
+        } else {
+            // Mostrar mensaje si no hay resultados
+            listaResultados.style.display = 'block';
+            const li = document.createElement('li');
+            li.className = 'list-group-item text-muted text-center';
+            li.textContent = 'No se encontró ningún estudiante...';
+            listaResultados.appendChild(li);
+        }
+    });
+
+    // 3. BUSCAR AL PRESIONAR ENTER (Redirige al primer resultado si existe)
+    inputBusqueda.addEventListener('keypress', function(event) {
+        if (event.key === 'Enter') {
+            event.preventDefault(); 
+            const textoBusqueda = this.value.toLowerCase().trim();
+            const resultado = indiceEstudiantes.find(est => est.nombre.toLowerCase().includes(textoBusqueda));
+
+            if (resultado) {
+                window.location.href = `${resultado.pagina}?search=${encodeURIComponent(resultado.nombre)}`;
+            } else if(textoBusqueda !== '') {
+                alert('No se encontró a ningún estudiante con ese nombre en el anuario.');
+            }
+        }
+    });
+
+    // Ocultar la lista flotante si el usuario hace clic fuera del buscador
+    document.addEventListener('click', function(e) {
+        if (!inputBusqueda.contains(e.target) && !listaResultados.contains(e.target)) {
+            listaResultados.style.display = 'none';
+        }
+    });
+});
+
+// ESTA PARTE VA EN LAS OTRAS PÁGINAS (ej: 1roA.html, 2doB.html) PARA ILUMINAR LA FOTO
+// Se mantiene aquí por si agregas tarjetas a la página de inicio en el futuro.
+const urlParams = new URLSearchParams(window.location.search);
+const terminoResaltar = urlParams.get('search');
+
+if (terminoResaltar) {
+    const tarjetas = document.querySelectorAll('.yearbook-card'); // Asegúrate que la tarjeta del estudiante tenga esta clase
+    for (let tarjeta of tarjetas) {
+        // Asegúrate que el h5 o p con el nombre tenga la clase 'student-name'
+        const nombreTarjeta = tarjeta.querySelector('.student-name').textContent.toLowerCase();
+        
+        if (nombreTarjeta.includes(terminoResaltar.toLowerCase())) {
+            tarjeta.classList.add('highlight-card'); // Añade el borde amarillo brillante
+            tarjeta.scrollIntoView({ behavior: 'smooth', block: 'center' }); // Hace scroll directo a la foto
+            break; 
+        }
+    }
+}
+</script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

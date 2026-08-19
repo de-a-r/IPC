@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anuario Escolar - Jornada Matutina</title>
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f8fafc;
+            color: #212529;
+        }
+        
+        .bg-custom-dark {
+            background-color: #111827;
+        }
+        
+        .navbar-brand {
+            font-family: 'Cinzel', serif;
+            color: #38bdf8 !important;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        
+        .nav-link-top {
+            color: #e2e8f0 !important;
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link-top:hover, .nav-link-top.active {
+            color: #facc15 !important;
+        }
+
+        /* Sub-Navegación de Grados */
+        .sub-nav .nav-link {
+            color: #4b5563;
+            font-weight: 600;
+            border: 1px solid transparent;
+            margin-right: 5px;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .sub-nav .nav-link:hover {
+            background-color: #e2e8f0;
+            color: #111827;
+        }
+
+        .sub-nav .nav-link.active {
+            background-color: #38bdf8 !important;
+            color: #111827 !important;
+            border-color: #38bdf8;
+        }
+
+        .dropdown-menu {
+            background-color: #1f2937;
+            border: 1px solid #38bdf8;
+        }
+
+        .dropdown-item {
+            color: #e2e8f0;
+            font-weight: 500;
+        }
+
+        .dropdown-item:hover {
+            background-color: #38bdf8;
+            color: #111827;
+        }
+        
+        /* --- ESTILO DE LAS TARJETAS DEL ANUARIO --- */
+        .yearbook-card {
+            background: #ffffff;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+        }
+
+        .yearbook-card:hover {
+            transform: translateY(-5px);
+            border-color: #facc15; 
+            box-shadow: 0 10px 20px rgba(250, 204, 21, 0.2);
+        }
+
+        /* Clase para resaltar al estudiante encontrado (Opción 2) */
+        .yearbook-card.highlight-card {
+            border-color: #facc15 !important;
+            box-shadow: 0 0 25px rgba(250, 204, 21, 0.9) !important;
+            transform: scale(1.08);
+            transition: all 0.3s ease;
+        }
+
+        /* Contenedor de la foto */
+        .photo-frame {
+            border: 3px solid #111827;
+            outline: 2px solid #38bdf8; 
+            background-color: #e2e8f0;
+            width: 150px;
+            height: 170px;
+            object-fit: cover;
+            border-radius: 6px;
+            display: block;
+        }
+
+        /* Bloque inferior oscuro para Nombre e Información */
+        .info-block {
+            background-color: #111827;
+            color: #ffffff;
+            border-top: 3px solid #facc15; 
+            padding: 12px;
+        }
+
+        .student-name {
+            font-family: 'Cinzel', serif;
+            color: #ffffff;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            margin-bottom: 2px;
+            text-transform: uppercase;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .student-meta {
+            color: #38bdf8; 
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+         /* --- ESTILO DIFERENTE PARA LA TARJETA DEL MAESTRO GUÍA --- */
+        .yearbook-card-teacher {
+            background: #fffbeb;
+            border: 2px solid #d97706;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .yearbook-card-teacher:hover {
+            transform: translateY(-5px);
+            border-color: #b45309;
+            box-shadow: 0 10px 20px rgba(217, 119, 6, 0.2) !important;
+        }
+
+        .photo-frame-teacher {
+            border: 3px solid #78350f;
+            outline: 2px solid #f59e0b;
+            background-color: #fef3c7;
+            width: 150px;
+            height: 170px;
+            object-fit: cover;
+            border-radius: 6px;
+            display: block;
+        }
+   /* Tarjeta del Maestro Guía */
+        .teacher-card {
+            background: #fff9db;
+            border: 2px solid #d97706;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .teacher-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(217, 119, 6, 0.15);
+        }
+
+        .teacher-photo-frame {
+            border: 3px solid #92400e;
+            outline: 2px solid #d97706;
+            background-color: #fff3c4;
+            width: 150px;
+            height: 170px;
+            object-fit: cover;
+            border-radius: 6px;
+            display: block;
+        }
+
+        .teacher-info-block {
+            background-color: #92400e;
+            color: #ffffff;
+            border-top: 3px solid #d97706;
+            padding: 12px;
+        }
+
+        .teacher-name {
+            font-family: 'Cinzel', serif;
+            color: #ffffff;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            margin-bottom: 2px;
+            text-transform: uppercase;
+        }
+
+        .teacher-meta {
+            color: #facc15;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .info-block-teacher {
+            background-color: #78350f;
+            color: #ffffff;
+            border-top: 3px solid #f59e0b;
+            padding: 12px;
+        }
+
+        .teacher-name {
+            font-family: 'Cinzel', serif;
+            color: #ffffff;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            margin-bottom: 2px;
+            text-transform: uppercase;
+        }
+
+        .teacher-meta {
+            color: #fde047;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Barra de Navegación Superior Principal -->
+    <nav class="navbar navbar-expand-lg bg-custom-dark sticky-top shadow">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-mortarboard-fill me-2 text-warning" viewBox="0 0 16 16">
+                    <path d="M8.211 2.047a.5.5 0 0 0-.422 0l-7.5 3.5a.5.5 0 0 0 .025.917l7.5 3a.5.5 0 0 0 .372 0L14 7.14V13a1 1 0 0 0-1 1v2h3v-2a1 1 0 0 0-1-1V6.739l.686-.275a.5.5 0 0 0 .025-.917z"/>
+                    <path d="M4.176 9.032a.5.5 0 0 0-.656.327l-.5 1.7a.5.5 0 0 0 .294.605l4.5 1.8a.5.5 0 0 0 .372 0l4.5-1.8a.5.5 0 0 0 .294-.605l-.5-1.7a.5.5 0 0 0-.656-.327L8 10.466z"/>
+                </svg>
+                YEARBOOK 2026
+            </a>
+            <button class="navbar-toggler navbar-dark border-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto text-center">
+                    <li class="nav-item px-2"><a class="nav-link-top" href="index.html">Inicio</a></li>
+                    <li class="nav-item px-2"><a class="nav-link-top active" href="matutina.html">Matutina</a></li>
+                    <li class="nav-item px-2"><a class="nav-link-top" href="vespertina.html">Vespertina</a></li>
+                    <li class="nav-item px-2"><a class="nav-link-top" href="Creditos.html">creditos</a></li>
+                    <li class="nav-item px-2"><a class="nav-link-top" href="Muroderecuerdos.html">muro de re</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Encabezado de la Jornada -->
+    <header class="bg-custom-dark text-white text-center py-4 border-bottom border-4 border-info">
+        <div class="container">
+            <span class="badge bg-info text-dark fw-bold px-3 py-2 mb-2">JORNADA MATUTINA</span>
+            <h1 class="display-5 fw-bold text-uppercase tracking-wide" style="font-family: 'Cinzel', serif;">Galería de Graduandos</h1>
+            <p class="text-white-50 lead mb-0">Instituto Profesional de Computación</p>
+        </div>
+    </header>
+
+    <!-- Navegación Secundarios de Grados -->
+    <nav class="bg-white shadow-sm py-3 sticky-top sub-nav-container" style="top: 56px; z-index: 1020;">
+        <div class="container">
+            <ul class="nav sub-nav justify-content-center flex-wrap">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Básicos</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="1roA.html">1ro Básico - Sección A</a></li>
+                        <li><a class="dropdown-item" href="1roB.html">1ro Básico - Sección B</a></li>
+                        <li><hr class="dropdown-divider border-secondary"></li>
+                        <li><a class="dropdown-item" href="2doA.html">2do Básico - Sección A</a></li>
+                        <li><a class="dropdown-item" href="2doB.html">2do Básico - Sección B</a></li>
+                        <li><hr class="dropdown-divider border-secondary"></li>
+                        <li><a class="dropdown-item" href="3roA.html">3ro Básico - Sección A</a></li>
+                        <li><a class="dropdown-item" href="3roB.html">3ro Básico - Sección B</a></li>
+                    </ul>
+                </li>
+                
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Bach. Computación</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="4tobachA.html">Sección A</a></li>
+                        <li><a class="dropdown-item" href="4tobachB.html">Sección B</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="4todiseño.html">Diseño Gráfico</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Contenido Principal: Cuadrícula de Estudiantes -->
+    <main class="container py-5">
+
+        
+
+        <section id="galeria-estudiantes" class="mb-5">
+            <div class="d-flex align-items-center mb-4 border-bottom pb-2">
+                <h2 class="fw-bold text-dark m-0" style="font-family: 'Cinzel', serif;">Primero Básico, Sección B <span class="text-info">2026</span></h2>
+                <span class="ms-3 badge bg-secondary text-white">26 Estudiantes</span>
+            </div>
+
+            <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 g-4 justify-content-center">
+                  <!-- Maestro Guía -->
+                <div class="col">
+                    <div class="teacher-card d-flex flex-column h-100">
+                        <div class="d-flex justify-content-center align-items-center p-3 flex-grow-1">
+                            <img src="img\Profesores\IMG_20260813_111944756_HDR(1).jpg" class="teacher-photo-frame" alt="Maestro Guía">
+                        </div>
+                        <div class="teacher-info-block text-center mt-auto">
+                            <h3 class="teacher-name">Noé Melecio <br>Reyes Hernández</h3>
+                            <span class="teacher-meta">MAESTRO GUÍA</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Estudiante 1 -->
+                <div class="col">
+                    <div class="yearbook-card text-center pt-4">
+                        <img src="img/Matutina/1ro B fondo blanco_/Copia de Álvaro Ivan Gutierrez Rivera.jpg" class="photo-frame mb-3 mx-auto" alt="Fotografía de Álvaro Ivan Gutierrez Rivera">
+                        <div class="info-block">
+                            <h3 class="student-name" title="Álvaro Ivan Gutierrez Rivera">Álvaro Ivan<br>Gutierrez Rivera</h3>
+                            <div class="student-meta">Estudiante</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Estudiante 2 -->
+                <div class="col">
+                    <div class="yearbook-card text-center pt-4">
+                        <img src="img/Matutina/1ro B fondo blanco_/Copia de Angel José Contreras Uyun.jpg" class="photo-frame mb-3 mx-auto" alt="Fotografía de Angel José Contreras Uyun">
+                        <div class="info-block">
+                            <h3 class="student-name" title="Angel José Contreras Uyun">Angel José<br>Contreras Uyun</h3>
+                            <div class="student-meta">Estudiante</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Estudiante 3 -->
+                <div class="col">
+                    <div class="yearbook-card text-center pt-4">
+                        <img src="img/Matutina/1ro B fondo blanco_/Copia de Angel Moisés Divas Rafael.jpg" class="photo-frame mb-3 mx-auto" alt="Fotografía de Angel Moisés Divas Rafael">
+                        <div class="info-block">
+                            <h3 class="student-name" title="Angel Moisés Divas Rafael">Angel Moisés<br>Divas Rafael</h3>
+                            <div class="student-meta">Estudiante</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Estudiante 4 -->
+                <div class="col">
+                    <div class="yearbook-card text-center pt-4">
+                        <img src="img/Matutina/1ro B fondo blanco_/Copia de Anthony Jadiel Mazariegos Vasquez .jpg" class="photo-frame mb-3 mx-auto" alt="Fotografía de Anthony Jadiel Mazariegos Vasquez">
+                        <div class="info-block">
+                            <h3 class="student-name" title="Anthony Jadiel Mazariegos Vasquez">Anthony Jadiel<br>Mazariegos Vasquez</h3>
+                            <div class="student-meta">Estudiante</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Estudiante 5 -->
+                <div class="col">
+                    <div class="yearbook-card text-center pt-4">
+                        <img src="img/Matutina/1ro B fondo blanco_/Copia de Axel Leonel Rivera Martinez.jpg" class="photo-frame mb-3 mx-auto" alt="Fotografía de Axel Leonel Rivera Martinez">
+                        <div class="info-block">
+                            <h3 class="student-name" title="Axel Leonel Rivera Martinez">Axel Leonel<br>Rivera Martinez</h3>
+                            <div class="student-meta">Estudiante</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Estudiante 6 -->
+                <div class="col">
+                    <div class="yearbook-card text-center pt-4">
+                        <img src="img/Matutina/1ro B fondo blanco_/Copia de Bryan Mateo Mejia Macario .jpg" class="photo-frame mb-3 mx-auto" alt="Fotografía de Bryan Mateo Mejia Macario">
+                        <div class="info-block">
+                            <h3 class="student-name" title="Bryan Mateo Mejia Macario">Bryan Mateo<br>Mejia Macario</h3>
+                            <div class="student-meta">Estudiante</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Estudiante 7 -->
+                <div class="col">
+                    <div class="yearbook-card text-center pt-4">
+                        <img src="img/Matutina/1ro B fondo blanco_/Copia de Christopher antonio Emmanuel Pocon.jpg" class="photo-frame mb-3 mx-auto" alt="Fotografía de Christopher Antonio Emmanuel Pocon">
+                        <div class="info-block">
+                            <h3 class="student-name" title="Christopher Antonio Emmanuel Pocon">Christopher A.<br>Emmanuel Pocon</h3>
+                            <div class="student-meta">Estudiante</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Estudiante 8 -->
+                <div class="col">
+                    <div class="yearbook-card text-center pt-4">
+                        <img src="img/Matutina/1ro B fondo blanco_/Copia de Dayrin Urbina Boctzoc Ichich.jpg" class="photo-frame mb-3 mx-auto" alt="Fotografía de Dayrin Urbina Boctzoc Ichich">
+                        <div class="info-block">
+                            <h3 class="student-name" title="Dayrin Urbina Boctzoc Ichich">Dayrin Urbina<br>Boctzoc Ichich</h3>
+                            <div class="student-meta">Estudiante</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Estudiante 9 -->
+                <div class="col">
+                    <div class="yearbook-card text-center pt-4">
+                        <img src="img/Matutina/1ro B fondo blanco_/Copia de Diego Emmanuel Morales López.jpg" class="photo-frame mb-3 mx-auto" alt="Fotografía de Diego Emmanuel Morales López">
+                        <div class="info-block">
+                            <h3 class="student-name" title="Diego Emmanuel Morales López">Diego Emmanuel<br>Morales López</h3>
+                            <div class="student-meta">Estudiante</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Estudiante 10 -->
+                <div class="col">
+                    <div class="yearbook-card text-center pt-4">
+                        <img src="img/Matutina/1ro B fondo blanco_/Copia de Dilan Estiven García Narváez.jpg" class="photo-frame mb-3 mx-auto" alt="Fotografía de Dilan Estiven García Narváez">
+                        <div class="info-block">
+                            <h3 class="student-name" title="Dilan Estiven García Narváez">Dilan Estiven<br>García Narváez</h3>
+                            <div class="student-meta">Estudiante</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Estudiante 11 -->
+                <div class="col">
+                    <div class="yearbook-card text-center pt-4">
+                        <img src="img/Matutina/1ro B fondo blanco_/Copia de Estefani Dayana Alvizures Sipaque.jpg" class="photo-frame mb-3 mx-auto" alt="Fotografía de Estefani Dayana Alvizures Sipaque">
+                        <div class="info-block">
+                            <h3 class="student-name" title="Estefani Dayana Alvizures Sipaque">Estefani Dayana<br>Alvizures Sipaque</h3>
+                            <div class="student-meta">Estudiante</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Estudiante 12 -->
+                <div class="col">
+                    <div class="yearbook-card text-center pt-4">
+                        <img src="img/Matutina/1ro B fondo blanco_/Copia de Fátima Andrea Recinos García.jpg" class="photo-frame mb-3 mx-auto" alt="Fotografía de Fátima Andrea Recinos García">
+                        <div class="info-block">
+                            <h3 class="student-name" title="Fátima Andrea Recinos García">Fátima Andrea<br>Recinos García</h3>
+                            <div class="student-meta">Estudiante</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Estudiante 13 -->
+                <div class="col">
+                    <div class="yearbook-card text-center pt-4">
+                        <img src="img/Matutina/1ro B fondo blanco_/Copia de Génesis Gabriela Hernández Andrés.jpg" class="photo-frame mb-3 mx-auto" alt="Fotografía de Génesis Gabriela Hernández Andrés">
+                        <div class="info-block">
+                            <h3 class="student-name" title="Génesis Gabriela Hernández Andrés">Génesis Gabriela<br>Hernández Andrés</h3>
+                            <div class="student-meta">Estudiante</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Estudiante 14 -->
+                <div class="col">
+                    <div class="yearbook-card text-center pt-4">
+                        <img src="img/Matutina/1ro B fondo blanco_/Copia de Jhonatan David Ramirez Jiménez.jpg" class="photo-frame mb-3 mx-auto" alt="Fotografía de Jhonatan David Ramirez Jiménez">
+                        <div class="info-block">
+                            <h3 class="student-name" title="Jhonatan David Ramirez Jiménez">Jhonatan David<br>Ramirez Jiménez</h3>
+                            <div class="student-meta">Estudiante</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Estudiante 15 -->
+                <div class="col">
+                    <div class="yearbook-card text-center pt-4">
+                        <img src="img/Matutina/1ro B fondo blanco_/Copia de Jorge Luis Salvado López.jpg" class="photo-frame mb-3 mx-auto" alt="Fotografía de Jorge Luis Salvado López">
+                        <div class="info-block">
+                            <h3 class="student-name" title="Jorge Luis Salvado López">Jorge Luis<br>Salvado López</h3>
+                            <div class="student-meta">Estudiante</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Estudiante 16 -->
+                <div class="col">
+                    <div class="yearbook-card text-center pt-4">
+                        <img src="img/Matutina/1ro B fondo blanco_/Copia de Julio Josué Contreras Uyun .jpg" class="photo-frame mb-3 mx-auto" alt="Fotografía de Julio Josué Contreras Uyun">
+                        <div class="info-block">
+                            <h3 class="student-name" title="Julio Josué Contreras Uyun">Julio Josué<br>Contreras Uyun</h3>
+                            <div class="student-meta">Estudiante</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Estudiante 17 -->
+                <div class="col">
+                    <div class="yearbook-card text-center pt-4">
+                        <img src="img/Matutina/1ro B fondo blanco_/Copia de keslher gedeoni de la roca Saldaña .jpg" class="photo-frame mb-3 mx-auto" alt="Fotografía de Keslher Gedeoni De La Roca Saldaña">
+                        <div class="info-block">
+                            <h3 class="student-name" title="Keslher Gedeoni De La Roca Saldaña">Keslher Gedeoni<br>De La Roca S.</h3>
+                            <div class="student-meta">Estudiante</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Estudiante 18 -->
+                <div class="col">
+                    <div class="yearbook-card text-center pt-4">
+                        <img src="img/Matutina/1ro B fondo blanco_/Copia de Maria Alejandra Vasquez cadenas .jpg" class="photo-frame mb-3 mx-auto" alt="Fotografía de María Alejandra Vásquez Cadenas">
+                        <div class="info-block">
+                            <h3 class="student-name" title="María Alejandra Vásquez Cadenas">María Alejandra<br>Vásquez Cadenas</h3>
+                            <div class="student-meta">Estudiante</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Estudiante 19 -->
+                <div class="col">
+                    <div class="yearbook-card text-center pt-4">
+                        <img src="img/Matutina/1ro B fondo blanco_/Copia de Melany Fabiola Ramirez Valenzuela.jpg" class="photo-frame mb-3 mx-auto" alt="Fotografía de Melany Carolina Patzán Pío">
+                        <div class="info-block">
+                            <h3 class="student-name" title="Melany Carolina Patzán Pío">Melany Carolina<br>Patzán Pío</h3>
+                            <div class="student-meta">Estudiante</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Estudiante 20 -->
+                <div class="col">
+                    <div class="yearbook-card text-center pt-4">
+                        <img src="img/Matutina/1ro B fondo blanco_/Copia de Melany Fabiola Ramirez Valenzuela.jpg" class="photo-frame mb-3 mx-auto" alt="Fotografía de Melany Fabiola Ramírez Valenzuela">
+                        <div class="info-block">
+                            <h3 class="student-name" title="Melany Fabiola Ramírez Valenzuela">Melany Fabiola<br>Ramírez Valenzuela</h3>
+                            <div class="student-meta">Estudiante</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Estudiante 21 -->
+                <div class="col">
+                    <div class="yearbook-card text-center pt-4">
+                        <img src="img/Matutina/1ro B fondo blanco_/Copia de Michael Josué Guerra Audon .jpg" class="photo-frame mb-3 mx-auto" alt="Fotografía de Michael Josué Guerra Audon">
+                        <div class="info-block">
+                            <h3 class="student-name" title="Michael Josué Guerra Audon">Michael Josué<br>Guerra Audon</h3>
+                            <div class="student-meta">Estudiante</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Estudiante 22 -->
+                <div class="col">
+                    <div class="yearbook-card text-center pt-4">
+                        <img src="img/Matutina/1ro B fondo blanco_/Copia de Osmar Alexander Lutin Gamarro.jpg" class="photo-frame mb-3 mx-auto" alt="Fotografía de Osmar Alexander Lutin Gamarro">
+                        <div class="info-block">
+                            <h3 class="student-name" title="Osmar Alexander Lutin Gamarro">Osmar Alexander<br>Lutin Gamarro</h3>
+                            <div class="student-meta">Estudiante</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Estudiante 23 -->
+                <div class="col">
+                    <div class="yearbook-card text-center pt-4">
+                        <img src="img/Matutina/1ro B fondo blanco_/Copia de Pablo Alexander Salgado López.jpg" class="photo-frame mb-3 mx-auto" alt="Fotografía de Pablo Alexander Salgado López">
+                        <div class="info-block">
+                            <h3 class="student-name" title="Pablo Alexander Salgado López">Pablo Alexander<br>Salgado López</h3>
+                            <div class="student-meta">Estudiante</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Estudiante 24 -->
+                <div class="col">
+                    <div class="yearbook-card text-center pt-4">
+                        <img src="img/Matutina/1ro B fondo blanco_/Copia de Paola Génesis Lancerio Romero.jpg" class="photo-frame mb-3 mx-auto" alt="Fotografía de Paola Génesis Lancerio Romero">
+                        <div class="info-block">
+                            <h3 class="student-name" title="Paola Génesis Lancerio Romero">Paola Génesis<br>Lancerio Romero</h3>
+                            <div class="student-meta">Estudiante</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Estudiante 25 -->
+                <div class="col">
+                    <div class="yearbook-card text-center pt-4">
+                        <img src="img/Matutina/1ro B fondo blanco_/Copia de sander Gael Gordio Casasola.jpg" class="photo-frame mb-3 mx-auto" alt="Fotografía de Sander Gael Gordillo Casasola">
+                        <div class="info-block">
+                            <h3 class="student-name" title="Sander Gael Gordillo Casasola">Sander Gael<br>Gordillo Casasola</h3>
+                            <div class="student-meta">Estudiante</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Estudiante 26 -->
+                <div class="col">
+                    <div class="yearbook-card text-center pt-4">
+                        <img src="img/Matutina/1ro B fondo blanco_/Copia de Victor Alessandro Hernández López.jpg" class="photo-frame mb-3 mx-auto" alt="Fotografía de Víctor Alessandro Hernández López">
+                        <div class="info-block">
+                            <h3 class="student-name" title="Víctor Alessandro Hernández López">Víctor Alessandro<br>Hernández López</h3>
+                            <div class="student-meta">Estudiante</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Pie de página -->
+    <footer class="bg-custom-dark text-white-50 text-center py-4 border-top border-warning border-2">
+        <div class="container">
+            <p class="mb-1 text-white-50">&copy; 2026 Instituto Profesional De Computación.</p>
+            <small class="text-muted">Jornada Matutina — Sistema Control de Anuario</small>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+if (terminoResaltar) {
+    const tarjetas = document.querySelectorAll('.yearbook-card'); // Asegúrate que la tarjeta del estudiante tenga esta clase
+    for (let tarjeta of tarjetas) {
+        // Asegúrate que el h5 o p con el nombre tenga la clase 'student-name'
+        const nombreTarjeta = tarjeta.querySelector('.student-name').textContent.toLowerCase();
+        
+        if (nombreTarjeta.includes(terminoResaltar.toLowerCase())) {
+            tarjeta.classList.add('highlight-card'); // Añade el borde amarillo brillante
+            tarjeta.scrollIntoView({ behavior: 'smooth', block: 'center' }); // Hace scroll directo a la foto
+            break; 
+        }
+    }
+}
+    </script>
+</body>
+</html>

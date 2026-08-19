@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anuario Escolar - Diseño Gráfico</title>
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f8fafc;
+            color: #212529;
+        }
+        
+        .bg-custom-dark {
+            background-color: #111827;
+        }
+        
+        .navbar-brand {
+            font-family: 'Cinzel', serif;
+            color: #38bdf8 !important;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        
+        .nav-link-top {
+            color: #e2e8f0 !important;
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link-top:hover, .nav-link-top.active {
+            color: #facc15 !important;
+        }
+
+        /* Sub-Navegación de Grados */
+        .sub-nav .nav-link {
+            color: #4b5563;
+            font-weight: 600;
+            border: 1px solid transparent;
+            margin-right: 5px;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .sub-nav .nav-link:hover {
+            background-color: #e2e8f0;
+            color: #111827;
+        }
+
+        .sub-nav .nav-link.active {
+            background-color: #38bdf8 !important;
+            color: #111827 !important;
+            border-color: #38bdf8;
+        }
+
+        .dropdown-menu {
+            background-color: #1f2937;
+            border: 1px solid #38bdf8;
+        }
+
+        .dropdown-item {
+            color: #e2e8f0;
+            font-weight: 500;
+        }
+
+        .dropdown-item:hover {
+            background-color: #38bdf8;
+            color: #111827;
+        }
+        
+        /* --- ESTILO DE LAS TARJETAS DEL ANUARIO --- */
+        .yearbook-card {
+            background: #ffffff;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+   /* Tarjeta del Maestro Guía */
+        .teacher-card {
+            background: #fff9db;
+            border: 2px solid #d97706;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .teacher-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(217, 119, 6, 0.15);
+        }
+
+        .teacher-photo-frame {
+            border: 3px solid #92400e;
+            outline: 2px solid #d97706;
+            background-color: #fff3c4;
+            width: 150px;
+            height: 170px;
+            object-fit: cover;
+            border-radius: 6px;
+            display: block;
+        }
+
+        .teacher-info-block {
+            background-color: #92400e;
+            color: #ffffff;
+            border-top: 3px solid #d97706;
+            padding: 12px;
+        }
+
+        .teacher-name {
+            font-family: 'Cinzel', serif;
+            color: #ffffff;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            margin-bottom: 2px;
+            text-transform: uppercase;
+        }
+
+        .teacher-meta {
+            color: #facc15;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .yearbook-card:hover {
+            transform: translateY(-5px);
+            border-color: #facc15; 
+            box-shadow: 0 10px 20px rgba(250, 204, 21, 0.15) !important;
+        }
+
+        .photo-frame {
+            border: 3px solid #111827;
+            outline: 2px solid #38bdf8; 
+            background-color: #e2e8f0;
+            width: 150px;
+            height: 170px;
+            object-fit: cover;
+            border-radius: 6px;
+            display: block;
+        }
+
+        .info-block {
+            background-color: #111827;
+            color: #ffffff;
+            border-top: 3px solid #facc15; 
+            padding: 12px;
+        }
+
+        .student-name {
+            font-family: 'Cinzel', serif;
+            color: #ffffff;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            margin-bottom: 2px;
+            text-transform: uppercase;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .student-meta {
+            color: #38bdf8; 
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Barra de Navegación Superior Principal -->
+    <nav class="navbar navbar-expand-lg bg-custom-dark sticky-top shadow">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-mortarboard-fill me-2 text-warning" viewBox="0 0 16 16">
+                    <path d="M8.211 2.047a.5.5 0 0 0-.422 0l-7.5 3.5a.5.5 0 0 0 .025.917l7.5 3a.5.5 0 0 0 .372 0L14 7.14V13a1 1 0 0 0-1 1v2h3v-2a1 1 0 0 0-1-1V6.739l.686-.275a.5.5 0 0 0 .025-.917z"/>
+                    <path d="M4.176 9.032a.5.5 0 0 0-.656.327l-.5 1.7a.5.5 0 0 0 .294.605l4.5 1.8a.5.5 0 0 0 .372 0l4.5-1.8a.5.5 0 0 0 .294-.605l-.5-1.7a.5.5 0 0 0-.656-.327L8 10.466z"/>
+                </svg>
+                YEARBOOK 2026
+            </a>
+            <button class="navbar-toggler navbar-dark border-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto text-center">
+                    <li class="nav-item px-2"><a class="nav-link-top" href="index.html">Inicio</a></li>
+                    <li class="nav-item px-2"><a class="nav-link-top active" href="matutina.html">Matutina</a></li>
+                    <li class="nav-item px-2"><a class="nav-link-top" href="vespertina.html">Vespertina</a></li>
+                    <li class="nav-item px-2"><a class="nav-link-top" href="Creditos.html">creditos</a></li>
+                    <li class="nav-item px-2"><a class="nav-link-top" href="Muroderecuerdos.html">muro de recuerdos</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Encabezado de la Jornada -->
+    <header class="bg-custom-dark text-white text-center py-4 border-bottom border-4 border-info">
+        <div class="container">
+            <span class="badge bg-info text-dark fw-bold px-3 py-2 mb-2">CARRERA TÉCNICA</span>
+            <h1 class="display-5 fw-bold text-uppercase tracking-wide" style="font-family: 'Cinzel', serif;">Diseño Gráfico</h1>
+            <p class="text-white-50 lead mb-0">Galería de Graduandos</p>
+        </div>
+    </header>
+
+    <!-- Opciones de Navegación específicas -->
+    <nav class="bg-white shadow-sm py-3 sticky-top sub-nav-container" style="top: 56px; z-index: 1020;">
+        <div class="container">
+            <ul class="nav sub-nav justify-content-center flex-wrap">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Básicos</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="1roA.html">1ro Básico - Sección A</a></li>
+                        <li><a class="dropdown-item" href="1roB.html">1ro Básico - Sección B</a></li>
+                        <li><hr class="dropdown-divider border-secondary"></li>
+                        <li><a class="dropdown-item" href="2doA.html">2do Básico - Sección A</a></li>
+                        <li><a class="dropdown-item" href="2doB.html">2do Básico - Sección B</a></li>
+                        <li><hr class="dropdown-divider border-secondary"></li>
+                        <li><a class="dropdown-item" href="3roA.html">3ro Básico - Sección A</a></li>
+                        <li><a class="dropdown-item" href="3roB.html">3ro Básico - Sección B</a></li>
+                    </ul>
+                </li>
+                
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Bach. Computación</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="4tobachA.html">Sección A</a></li>
+                        <li><a class="dropdown-item" href="4tobachB.html">Sección B</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link active" href="4todiseño.html">Diseño Gráfico</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Contenido Principal -->
+    <main class="container py-5">
+        <section id="galeria-estudiantes" class="mb-5">
+            <div class="d-flex align-items-center mb-4 border-bottom pb-2">
+                <h2 class="fw-bold text-dark m-0" style="font-family: 'Cinzel', serif;">Cuarto Diseño Gráfico <span class="text-info">2026</span></h2>
+                <span class="ms-3 badge bg-secondary text-white">14 Estudiantes</span>
+            </div>
+
+            <!-- Rejilla con las fotos -->
+            <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 g-4 justify-content-center">
+                 <!-- Maestro Guía -->
+                <div class="col">
+                    <div class="teacher-card d-flex flex-column h-100">
+                        <div class="d-flex justify-content-center align-items-center p-3 flex-grow-1">
+                            <img src="img\Profesores\IMG_20260813_112142636_HDR(1).jpg" class="teacher-photo-frame" alt="Maestro Guía">
+                        </div>
+                        <div class="teacher-info-block text-center mt-auto">
+                            <h3 class="teacher-name">Yenifer Valesca Azmitia Hernández</h3>
+                            <span class="teacher-meta">MAESTRO GUÍA</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Estudiante 1 -->
+                <div class="col">
+                    <div class="yearbook-card d-flex flex-column h-100">
+                        <div class="d-flex justify-content-center align-items-center p-3 flex-grow-1">
+                            <img src="img/Matutina/Diseo fondo blanco_/1.png" class="photo-frame" alt="Alex Giovanni Jiménez Ramos">
+                        </div>
+                        <div class="info-block text-center mt-auto">
+                            <h3 class="student-name" title="Alex Giovanni Jiménez Ramos">Alex Giovanni <br>Jiménez Ramos</h3>
+ <div class="student-meta" style="color: #29b0ff;">ESTUDIANTE</div>                        </div>
+                    </div>
+                </div>
+
+                <!-- Estudiante 2 -->
+                <div class="col">
+                    <div class="yearbook-card d-flex flex-column h-100">
+                        <div class="d-flex justify-content-center align-items-center p-3 flex-grow-1">
+                            <img src="img/Matutina/Diseo fondo blanco_/2.png" class="photo-frame" alt="Alisson Nahomi Mejia Garcia">
+                        </div>
+                        <div class="info-block text-center mt-auto">
+                            <h3 class="student-name" title="Alisson Nahomi Mejia Garcia">Alisson Nahomi <br>Mejia Garcia</h3>
+ <div class="student-meta" style="color: #29b0ff;">ESTUDIANTE</div>                        </div>
+                    </div>
+                </div>
+
+                <!-- Estudiante 3 -->
+                <div class="col">
+                    <div class="yearbook-card d-flex flex-column h-100">
+                        <div class="d-flex justify-content-center align-items-center p-3 flex-grow-1">
+                            <img src="img/Matutina/Diseo fondo blanco_/3.png" class="photo-frame" alt="Allison Tamileth Serrano Parada">
+                        </div>
+                        <div class="info-block text-center mt-auto">
+                            <h3 class="student-name" title="Allison Tamileth Serrano Parada">Allison Tamileth<br> Serrano Parada</h3>
+ <div class="student-meta" style="color: #29b0ff;">ESTUDIANTE</div>                        </div>
+                    </div>
+                </div>
+
+                <!-- Estudiante 4 -->
+                <div class="col">
+                    <div class="yearbook-card d-flex flex-column h-100">
+                        <div class="d-flex justify-content-center align-items-center p-3 flex-grow-1">
+                            <img src="img/Matutina/Diseo fondo blanco_/4.png" class="photo-frame" alt="Daniela Sarai Villatoro Ramirez">
+                        </div>
+                        <div class="info-block text-center mt-auto">
+                            <h3 class="student-name" title="Daniela Sarai Villatoro Ramirez">Daniela Sarai<br> Villatoro Ramirez</h3>
+ <div class="student-meta" style="color: #29b0ff;">ESTUDIANTE</div>                        </div>
+                    </div>
+                </div>
+
+                <!-- Estudiante 5 -->
+                <div class="col">
+                    <div class="yearbook-card d-flex flex-column h-100">
+                        <div class="d-flex justify-content-center align-items-center p-3 flex-grow-1">
+                            <img src="img/Matutina/Diseo fondo blanco_/5.png" class="photo-frame" alt="Daphne Sofía Orantes Arroyo">
+                        </div>
+                        <div class="info-block text-center mt-auto">
+                            <h3 class="student-name" title="Daphne Sofía Orantes Arroyo">Daphne Sofía<br> Orantes Arroyo</h3>
+ <div class="student-meta" style="color: #29b0ff;">ESTUDIANTE</div>                        </div>
+                    </div>
+                </div>
+
+                <!-- Estudiante 6 -->
+                <div class="col">
+                    <div class="yearbook-card d-flex flex-column h-100">
+                        <div class="d-flex justify-content-center align-items-center p-3 flex-grow-1">
+                            <img src="img/Matutina/Diseo fondo blanco_/6.png" class="photo-frame" alt="Emily Alessandra Aquino Herrera">
+                        </div>
+                        <div class="info-block text-center mt-auto">
+                            <h3 class="student-name" title="Emily Alessandra Aquino Herrera">Emily Alessandra<br> Aquino Herrera</h3>
+ <div class="student-meta" style="color: #29b0ff;">ESTUDIANTE</div>                        </div>
+                    </div>
+                </div>
+
+                <!-- Estudiante 7 -->
+                <div class="col">
+                    <div class="yearbook-card d-flex flex-column h-100">
+                        <div class="d-flex justify-content-center align-items-center p-3 flex-grow-1">
+                            <img src="img/Matutina/Diseo fondo blanco_/7.png" class="photo-frame" alt="Eunice Abigail Riso Dionicio">
+                        </div>
+                        <div class="info-block text-center mt-auto">
+                            <h3 class="student-name" title="Eunice Abigail Riso Dionicio">Eunice Abigail <br>Riso Dionicio</h3>
+ <div class="student-meta" style="color: #29b0ff;">ESTUDIANTE</div>                        </div>
+                    </div>
+                </div>
+
+                <!-- Estudiante 8 -->
+                <div class="col">
+                    <div class="yearbook-card d-flex flex-column h-100">
+                        <div class="d-flex justify-content-center align-items-center p-3 flex-grow-1">
+                            <img src="img/Matutina/Diseo fondo blanco_/8.png" class="photo-frame" alt="Fernando Daniel Carrillo Ramírez">
+                        </div>
+                        <div class="info-block text-center mt-auto">
+                            <h3 class="student-name" title="Fernando Daniel Carrillo Ramírez">Fernando Daniel <br>Carrillo Ramírez</h3>
+ <div class="student-meta" style="color: #29b0ff;">ESTUDIANTE</div>                        </div>
+                    </div>
+                </div>
+
+                <!-- Estudiante 9 -->
+                <div class="col">
+                    <div class="yearbook-card d-flex flex-column h-100">
+                        <div class="d-flex justify-content-center align-items-center p-3 flex-grow-1">
+                            <img src="img/Matutina/Diseo fondo blanco_/9.png" class="photo-frame" alt="Flor de María Velasquez Gómez">
+                        </div>
+                        <div class="info-block text-center mt-auto">
+                            <h3 class="student-name" title="Flor de María Velasquez Gómez">Flor de María <br>Velasquez Gómez</h3>
+ <div class="student-meta" style="color: #29b0ff;">ESTUDIANTE</div>                        </div>
+                    </div>
+                </div>
+
+                <!-- Estudiante 10 -->
+                <div class="col">
+                    <div class="yearbook-card d-flex flex-column h-100">
+                        <div class="d-flex justify-content-center align-items-center p-3 flex-grow-1">
+                            <img src="img/Matutina/Diseo fondo blanco_/10.png" class="photo-frame" alt="Génesis Adriana Estrella Pérez Ruiz">
+                        </div>
+                        <div class="info-block text-center mt-auto">
+                            <h3 class="student-name" title="Génesis Adriana Estrella Pérez Ruiz">Génesis Adriana<br> Estrella Pérez <br>Ruiz</h3>
+ <div class="student-meta" style="color: #29b0ff;">ESTUDIANTE</div>                        </div>
+                    </div>
+                </div>
+
+                <!-- Estudiante 11 -->
+                <div class="col">
+                    <div class="yearbook-card d-flex flex-column h-100">
+                        <div class="d-flex justify-content-center align-items-center p-3 flex-grow-1">
+                            <img src="img/Matutina/Diseo fondo blanco_/11.png" class="photo-frame" alt="Ingrid Fabiola Vasquez Vasquez">
+                        </div>
+                        <div class="info-block text-center mt-auto">
+                            <h3 class="student-name" title="Ingrid Fabiola Vasquez Vasquez">Ingrid Fabiola <br>Vasquez Vasquez</h3>
+ <div class="student-meta" style="color: #29b0ff;">ESTUDIANTE</div>                        </div>
+                    </div>
+                </div>
+
+                <!-- Estudiante 12 -->
+                <div class="col">
+                    <div class="yearbook-card d-flex flex-column h-100">
+                        <div class="d-flex justify-content-center align-items-center p-3 flex-grow-1">
+                            <img src="img/Matutina/Diseo fondo blanco_/12.png" class="photo-frame" alt="Jennifer Abigail Contreras Monterroso">
+                        </div>
+                        <div class="info-block text-center mt-auto">
+                            <h3 class="student-name" title="Jennifer Abigail Contreras Monterroso">Jennifer Abigail<br> Contreras<br> Monterroso</h3>
+ <div class="student-meta" style="color: #29b0ff;">ESTUDIANTE</div>                        </div>
+                    </div>
+                </div>
+
+                <!-- Estudiante 13 -->
+                <div class="col">
+                    <div class="yearbook-card d-flex flex-column h-100">
+                        <div class="d-flex justify-content-center align-items-center p-3 flex-grow-1">
+                            <img src="img/Matutina/Diseo fondo blanco_/13.png" class="photo-frame" alt="Margareth Rubi Barrios Gonzalez">
+                        </div>
+                        <div class="info-block text-center mt-auto">
+                            <h3 class="student-name" title="Margareth Rubi Barrios Gonzalez">Margareth Rubi <br>Barrios Gonzalez</h3>
+ <div class="student-meta" style="color: #29b0ff;">ESTUDIANTE</div>                        </div>
+                    </div>
+                </div>
+
+                <!-- Estudiante 14 -->
+                <div class="col">
+                    <div class="yearbook-card d-flex flex-column h-100">
+                        <div class="d-flex justify-content-center align-items-center p-3 flex-grow-1">
+                            <img src="img/Matutina/Diseo fondo blanco_/14.png" class="photo-frame" alt="Rodrigo Miguel Velasquez Zacarías">
+                        </div>
+                        <div class="info-block text-center mt-auto">
+                            <h3 class="student-name" title="Rodrigo Miguel Velasquez Zacarías">Rodrigo Miguel <br>Velasquez <br>Zacarías</h3>
+ <div class="student-meta" style="color: #29b0ff;">ESTUDIANTE</div>                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Pie de página -->
+    <footer class="bg-custom-dark text-white-50 text-center py-4 border-top border-warning border-2">
+        <div class="container">
+            <p class="mb-0" style="font-family: 'Cinzel', serif;">&copy; 2026 Instituto Profesional de Computación. Todos los derechos reservados.</p>
+            <small class="text-muted">Carrera de Diseño Gráfico — Sistema Control de Anuario</small>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
