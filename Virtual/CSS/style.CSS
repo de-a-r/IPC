@@ -1,0 +1,15 @@
+div {
+  width: 200px;
+  padding: 10px;
+  border: 2px solid black;
+  margin: 20px;
+}
+.Lolo{
+    width: 685px;
+  padding: 10px;
+  background: linear-gradient(red, magenta);
+  margin: 20px;
+  border-radius: 10px;
+}
+img
+{width: 20px;}
